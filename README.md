@@ -14,7 +14,7 @@ https://v4.fenxi365.com/ （源码演示版）<br><br>
 https://f3.fenxi365.com/ <br>
 正式环境，可注册账号直接使用或测试
 
-开发文档<br>
+开发和部署文档<br>
 https://doc.fenxi365.com/
 
 ### 功能对比
