@@ -4,8 +4,10 @@
 **纷析云SAAS云财务软件开源版**<br>
 包含账套、凭证字、科目、期初、币别、账簿、报表、凭证、结账
 ### 技术交流群
+
 扫码添加客服进群<br>
-![code.jpg](code.jpg)
+<img src="https://f3.fenxi365.com/api/assets/logo/4d6614c2-4384-487f-ba73-d8a4439f2033.png" height="150px" width="150px"/>
+
 ### 商业版地址
 纷析云商业版<br>
 https://v4.fenxi365.com/ （源码演示版）<br><br>
