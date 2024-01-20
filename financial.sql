@@ -182,12 +182,12 @@ CREATE TABLE `fxy_financial_backup`  (
   `account_sets_id` int NULL DEFAULT NULL,
   `bak_time` datetime(0) NULL DEFAULT NULL,
   `bak_type` int NULL DEFAULT NULL,
-  `path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `size` bigint NULL DEFAULT NULL,
-  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `user_id` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fxy_financial_backup
@@ -259,12 +259,12 @@ CREATE TABLE `fxy_financial_report`  (
   `account_sets_id` int NULL DEFAULT NULL,
   `dimensions` json NULL,
   `is_default` bit(1) NOT NULL DEFAULT b'1',
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `pos` int NOT NULL DEFAULT 0,
-  `template_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `template_key` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `uc_report`(`account_sets_id`, `template_key`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fxy_financial_report
@@ -283,9 +283,9 @@ CREATE TABLE `fxy_financial_report_items`  (
   `parent_id` int NULL DEFAULT NULL,
   `pos` int NULL DEFAULT NULL,
   `template_id` int NULL DEFAULT NULL,
-  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fxy_financial_report_items
@@ -299,12 +299,12 @@ CREATE TABLE `fxy_financial_report_items_formula`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `access_rules` int NULL DEFAULT NULL,
   `account_sets_id` int NULL DEFAULT NULL,
-  `calculation` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `from_tag` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `calculation` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
+  `from_tag` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `source` int NULL DEFAULT NULL,
   `template_items_id` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fxy_financial_report_items_formula
@@ -316,9 +316,9 @@ CREATE TABLE `fxy_financial_report_items_formula`  (
 DROP TABLE IF EXISTS `fxy_financial_report_template`;
 CREATE TABLE `fxy_financial_report_template`  (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `account_sets_id` int NULL DEFAULT NULL,
-  `template_key` varchar(128) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `template_key` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `type` int NOT NULL DEFAULT 0 COMMENT '报表类型：0普通报表，1资产报表',
   `accounting_standards` smallint NULL DEFAULT NULL,
   `dimensions` json NULL,
@@ -328,7 +328,7 @@ CREATE TABLE `fxy_financial_report_template`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `fxy_report_template_account_sets_id_template_key_uindex`(`account_sets_id`, `template_key`) USING BTREE,
   UNIQUE INDEX `uc_reporttemplate`(`accounting_standards`, `vat_type`, `template_key`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fxy_financial_report_template
@@ -359,7 +359,7 @@ DROP TABLE IF EXISTS `fxy_financial_report_template_items`;
 CREATE TABLE `fxy_financial_report_template_items`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `template_id` int NOT NULL,
-  `title` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '标题',
+  `title` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '标题',
   `parent_id` int NULL DEFAULT NULL,
   `line_num` int NOT NULL DEFAULT -1 COMMENT '行次',
   `type` int NULL DEFAULT NULL COMMENT '资产负载类型时需要设置\n0,资产 1,负债 2，所有者权益',
@@ -372,7 +372,7 @@ CREATE TABLE `fxy_financial_report_template_items`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fxy_report_template_items_fxy_report_template_id_fk`(`template_id`) USING BTREE,
   INDEX `fxy_report_template_items_fxy_report_template_items_id_fk`(`parent_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 695 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 695 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fxy_financial_report_template_items
@@ -1077,15 +1077,15 @@ CREATE TABLE `fxy_financial_report_template_items_formula`  (
   `template_id` int NOT NULL COMMENT '模板 id',
   `template_items_id` int NOT NULL,
   `account_sets_id` int NOT NULL,
-  `calculation` enum('+','-','*','/') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT '+' COMMENT '计算方式',
+  `calculation` enum('+','-','*','/') CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '+' COMMENT '计算方式',
   `access_rules` int NOT NULL COMMENT '取数规则：0,净发生额度 1,借方发生额 2,贷方发生额',
-  `from_tag` varchar(125) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '数据来源标识',
+  `from_tag` varchar(125) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '数据来源标识',
   `source` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fxy_at_fk`(`account_sets_id`) USING BTREE,
   INDEX `fxy_ift_fk`(`template_id`) USING BTREE,
   INDEX `fxy_tif_fk`(`template_items_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 316 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = '模板项公式表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 316 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '模板项公式表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fxy_financial_report_template_items_formula
@@ -2564,12 +2564,12 @@ DROP TABLE IF EXISTS `fxy_financial_subject_template`;
 CREATE TABLE `fxy_financial_subject_template`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `accounting_standards` smallint NULL DEFAULT NULL,
-  `encoding` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `encoding` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `last_update_time` datetime(0) NULL DEFAULT NULL,
-  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `vat_type` smallint NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fxy_financial_subject_template
@@ -2587,21 +2587,21 @@ INSERT INTO `fxy_financial_subject_template` VALUES (6, 2, '4-2-2-2', NULL, '民
 DROP TABLE IF EXISTS `fxy_financial_subject_template_items`;
 CREATE TABLE `fxy_financial_subject_template_items`  (
   `id` int NOT NULL AUTO_INCREMENT,
-  `auxiliary_accounting` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `auxiliary_accounting` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `balance` double NULL DEFAULT NULL,
-  `balance_direction` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `balance_direction` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
+  `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `level` int NULL DEFAULT NULL,
-  `mnemonic_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `parent_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `mnemonic_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
+  `parent_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   `status` bit(1) NOT NULL DEFAULT b'1',
   `subject_template_id` int NULL DEFAULT NULL,
   `system_default` bit(1) NOT NULL DEFAULT b'1',
-  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `unit` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
+  `unit` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of fxy_financial_subject_template_items
@@ -2654,7 +2654,6 @@ CREATE TABLE `fxy_financial_user_account_sets`  (
   `account_sets_id` int NOT NULL,
   `user_id` int NOT NULL,
   `role_type` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT '账套角色',
-  `id` bigint NOT NULL,
   UNIQUE INDEX `fxy_financial_user_uix`(`account_sets_id`, `user_id`) USING BTREE,
   INDEX `fxy_financial_user_account_sets_fxy_financial_user_id_fk`(`user_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin COMMENT = '用户关联的账套' ROW_FORMAT = DYNAMIC;
