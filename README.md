@@ -8,9 +8,15 @@
 扫码添加客服进群<br>
 <img src="https://f3.fenxi365.com/api/assets/logo/4d6614c2-4384-487f-ba73-d8a4439f2033.png" height="150px" width="150px"/>
 
+### 开源版地址
+纷析云开源版<br>
+https://f.fenxi365.com/ （开源演示版）<br>
+测试账号：13456781004/123456
+<br>
+
 ### 商业版地址
 纷析云商业版<br>
-https://v4.fenxi365.com/ （源码演示版）<br><br>
+https://v4.fenxi365.com/ （商业源码演示版）<br><br>
 
 纷析云渠道版<br>
 https://f3.fenxi365.com/ <br>
@@ -19,7 +25,7 @@ https://f3.fenxi365.com/ <br>
 开发和部署文档<br>
 https://doc.fenxi365.com/
 
-### 功能对比
+### 功能对比 
 | 功能模块| 开源版| 商业版[技术重构]| 
 |----|----|----|
 | 凭证 | ✔ | ✔ | 
