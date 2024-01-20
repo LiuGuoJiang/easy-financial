@@ -80,7 +80,6 @@ public class SubjectController extends BaseCrudController<SubjectService, Subjec
             if ("结转损益".equals(name)) {
                 qwe.or(true).eq("type", "损益");
             }
-            return wrapper;
         });
 
         List<Subject> subjects = service.list(qw);

@@ -14,7 +14,7 @@ spring:
 logging:
   level:
     "cn.gson.financial.kernel.model.mapper": info
-  path: /data/worker/logs
+  path: /data/logs/financial
 
 mybatis-plus:
   type-aliases-package: cn.gson.financial.kernel.model.entity

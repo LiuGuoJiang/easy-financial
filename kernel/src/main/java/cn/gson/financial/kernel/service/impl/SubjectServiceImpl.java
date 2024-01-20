@@ -206,7 +206,6 @@ public class SubjectServiceImpl extends ServiceImpl<SubjectMapper, Subject> impl
             qwi.and(wrapper -> {
                 wrapper.or(true).isNotNull(VoucherDetails::getCreditAmount);
                 wrapper.or(true).isNotNull(VoucherDetails::getDebitAmount);
-                return wrapper;
             });
             this.voucherDetailsMapper.selectList(qwi).forEach(ib -> {
                 if (sbvMap.containsKey(ib.getSubjectId())) {
