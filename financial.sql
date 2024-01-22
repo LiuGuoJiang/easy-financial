@@ -2661,15 +2661,15 @@ CREATE TABLE `fxy_financial_user_account_sets`  (
 -- ----------------------------
 -- Records of fxy_financial_user_account_sets
 -- ----------------------------
-INSERT INTO `fxy_financial_user_account_sets` VALUES (1, 1, 'Manager', 0);
-INSERT INTO `fxy_financial_user_account_sets` VALUES (2, 1, 'Manager', 0);
-INSERT INTO `fxy_financial_user_account_sets` VALUES (2, 4, 'Manager', 0);
-INSERT INTO `fxy_financial_user_account_sets` VALUES (2, 5, 'View', 0);
-INSERT INTO `fxy_financial_user_account_sets` VALUES (3, 2, 'Manager', 0);
-INSERT INTO `fxy_financial_user_account_sets` VALUES (4, 3, 'Manager', 0);
-INSERT INTO `fxy_financial_user_account_sets` VALUES (5, 1, 'Manager', 0);
-INSERT INTO `fxy_financial_user_account_sets` VALUES (5, 4, 'Manager', 0);
-INSERT INTO `fxy_financial_user_account_sets` VALUES (6, 4, 'Manager', 0);
+INSERT INTO `fxy_financial_user_account_sets` VALUES (1, 1, 'Manager');
+INSERT INTO `fxy_financial_user_account_sets` VALUES (2, 1, 'Manager');
+INSERT INTO `fxy_financial_user_account_sets` VALUES (2, 4, 'Manager');
+INSERT INTO `fxy_financial_user_account_sets` VALUES (2, 5, 'View');
+INSERT INTO `fxy_financial_user_account_sets` VALUES (3, 2, 'Manager');
+INSERT INTO `fxy_financial_user_account_sets` VALUES (4, 3, 'Manager');
+INSERT INTO `fxy_financial_user_account_sets` VALUES (5, 1, 'Manager');
+INSERT INTO `fxy_financial_user_account_sets` VALUES (5, 4, 'Manager');
+INSERT INTO `fxy_financial_user_account_sets` VALUES (6, 4, 'Manager');
 
 -- ----------------------------
 -- Table structure for fxy_financial_voucher
