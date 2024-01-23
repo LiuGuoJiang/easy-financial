@@ -22,8 +22,30 @@ https://v4.fenxi365.com/ （商业源码演示版）<br><br>
 https://f3.fenxi365.com/ <br>
 正式环境，可注册账号直接使用或测试
 
-开发和部署文档<br>
-https://doc.fenxi365.com/
+###开源版开发和部署文档<br>
+软件版本
+JDK版本：1.8
+redis 4.0+
+mysql 5.7+
+sql_mode关闭only_full_group
+nodejs 16.x
+版本太高前端依赖会构建失败
+
+开发工具
+intellij idea 2021+ 
+navicat
+
+前端框架
+vue2 heyui https://v2.heyui.top/
+后端框架
+springboot 2+ 
+mybatis
+
+运行配置  
+后端
+![输入图片说明](houduan.png)
+前端
+![输入图片说明](qianduan.png)
 
 ### 功能对比 
 | 功能模块| 开源版| 商业版[技术重构]| 
