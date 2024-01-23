@@ -24,28 +24,28 @@ https://f3.fenxi365.com/ <br>
 
 ### 开源版开发和部署文档
 软件版本
-JDK版本：1.8
-redis 4.0+
-mysql 5.7+
-sql_mode关闭only_full_group
-nodejs 16.x
-版本太高前端依赖会构建失败
+JDK版本：1.8<br>
+redis 4.0+<br>
+mysql 5.7+<br>
+sql_mode关闭only_full_group<br>
+nodejs 16.x<br>
+版本太高前端依赖会构建失败<br><br>
 
 开发工具
-intellij idea 2021+ 
-navicat
+intellij idea 2021+ <br>
+navicat<br><br>
 
-前端框架
-vue2 heyui https://v2.heyui.top/
-后端框架
-springboot 2+ 
-mybatis
+前端框架<br>
+vue2 heyui https://v2.heyui.top/<br>
+后端框架<br>
+springboot 2+ <br>
+mybatis<br><br>
 
-运行配置  
-后端
-![输入图片说明](houduan.png)
-前端
-![输入图片说明](qianduan.png)
+运行配置  <br>
+后端<br>
+![输入图片说明](houduan.png)<br>
+前端<br>
+![输入图片说明](qianduan.png)<br>
 
 ### 功能对比 
 | 功能模块| 开源版| 商业版[技术重构]| 
