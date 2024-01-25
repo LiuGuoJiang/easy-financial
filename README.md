@@ -47,7 +47,7 @@ mybatis<br><br>
 前端<br>
 ![输入图片说明](qianduan.png)<br>
 
-#部署
+# 部署
 jar 方式启动<br>
 java -jar financial-0.1.jar<br>
 
