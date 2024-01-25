@@ -22,7 +22,7 @@ https://v4.fenxi365.com/ （商业源码演示版）<br><br>
 https://f3.fenxi365.com/ <br>
 正式环境，可注册账号直接使用或测试
 
-### 开源版开发和部署文档
+### 开源版开发环境
 软件版本
 JDK版本：1.8<br>
 redis 4.0+<br>
@@ -47,7 +47,7 @@ mybatis<br><br>
 前端<br>
 ![输入图片说明](qianduan.png)<br>
 
-# 部署
+### 部署
 jar 方式启动<br>
 java -jar financial-0.1.jar<br>
 
