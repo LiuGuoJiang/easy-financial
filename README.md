@@ -31,7 +31,7 @@ sql_mode关闭only_full_group<br>
 nodejs 16.x<br>
 版本太高前端依赖会构建失败<br><br>
 
-开发工具
+开发工具<br>
 intellij idea 2021+ <br>
 navicat<br><br>
 
@@ -46,6 +46,14 @@ mybatis<br><br>
 ![输入图片说明](houduan.png)<br>
 前端<br>
 ![输入图片说明](qianduan.png)<br>
+
+#部署
+jar 方式启动<br>
+java -jar financial-0.1.jar<br>
+
+以Linux程序启动<br>
+./financial-0.1.jar<br>
+
 
 ### 功能对比 
 | 功能模块| 开源版| 商业版[技术重构]| 
