@@ -22,8 +22,38 @@ https://v4.fenxi365.com/ （商业源码演示版）<br><br>
 https://f3.fenxi365.com/ <br>
 正式环境，可注册账号直接使用或测试
 
-开发和部署文档<br>
-https://doc.fenxi365.com/
+### 开源版开发环境
+软件版本
+JDK版本：1.8<br>
+redis 4.0+<br>
+mysql 5.7+<br>
+sql_mode关闭only_full_group<br>
+nodejs 16.x<br>
+版本太高前端依赖会构建失败<br><br>
+
+开发工具<br>
+intellij idea 2021+ <br>
+navicat<br><br>
+
+前端框架<br>
+vue2 heyui https://v2.heyui.top/<br>
+后端框架<br>
+springboot 2+ <br>
+mybatis<br><br>
+
+运行配置  <br>
+后端<br>
+![输入图片说明](houduan.png)<br>
+前端<br>
+![输入图片说明](qianduan.png)<br>
+
+### 部署
+jar 方式启动<br>
+java -jar financial-0.1.jar<br>
+
+以Linux程序启动<br>
+./financial-0.1.jar<br>
+
 
 ### 功能对比 
 | 功能模块| 开源版| 商业版[技术重构]| 
