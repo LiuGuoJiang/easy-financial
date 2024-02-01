@@ -405,10 +405,10 @@ public class AccountSetsServiceImpl extends ServiceImpl<AccountSetsMapper, Accou
     private void initSubject(AccountSets entity) {
         try {
             if (entity.getAccountingStandards() == 0) {
-                List<SubjectVo> smallEnterpriseSubject = JSONArray.parseArray(IOUtils.toString(AccountSetsServiceImpl.class.getResourceAsStream("/subject/small_enterprise.json")), SubjectVo.class);
+                List<SubjectVo> smallEnterpriseSubject = JSONArray.parseArray(IOUtils.toString(AccountSetsServiceImpl.class.getResourceAsStream("/subject/small_enterprise.json"),"UTF-8"), SubjectVo.class);
                 this.recursiveSubject(smallEnterpriseSubject, entity);
             } else {
-                List<SubjectVo> enterpriseSubject = JSONArray.parseArray(IOUtils.toString(AccountSetsServiceImpl.class.getResourceAsStream("/subject/enterprise.json")), SubjectVo.class);
+                List<SubjectVo> enterpriseSubject = JSONArray.parseArray(IOUtils.toString(AccountSetsServiceImpl.class.getResourceAsStream("/subject/enterprise.json"),"UTF-8"), SubjectVo.class);
                 this.recursiveSubject(enterpriseSubject, entity);
             }
         } catch (Exception e) {
@@ -479,7 +479,7 @@ public class AccountSetsServiceImpl extends ServiceImpl<AccountSetsMapper, Accou
     private void initReport(AccountSets entity) throws IOException {
         String[] fileNames = {"lrb.json", "xjllb.json", "zcfzb.json"};
         for (String fileName : fileNames) {
-            JSONObject lrb = JSONObject.parseObject(IOUtils.toString(AccountSetsServiceImpl.class.getResourceAsStream("/report/standard" + entity.getAccountingStandards() + "/" + fileName)));
+            JSONObject lrb = JSONObject.parseObject(IOUtils.toString(AccountSetsServiceImpl.class.getResourceAsStream("/report/standard" + entity.getAccountingStandards() + "/" + fileName),"UTF-8"));
             ReportTemplate rt = new ReportTemplate();
             rt.setName(lrb.getString("name"));
             rt.setAccountSetsId(entity.getId());
