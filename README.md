@@ -20,7 +20,7 @@ https://v4.fenxi365.com/ （商业源码演示版）<br><br>
 
 纷析云渠道版<br>
 https://f3.fenxi365.com/ <br>
-正式环境，可注册账号直接使用或测试
+正式环境，可注册账号直接使用
 
 ### 开源版开发环境
 软件版本
@@ -43,9 +43,9 @@ mybatis<br><br>
 
 运行配置  <br>
 后端<br>
-![输入图片说明](houduan.png)<br>
+![输入图片说明](doc/houduan.png)<br>
 前端<br>
-![输入图片说明](qianduan.png)<br>
+![输入图片说明](doc/qianduan.png)<br>
 
 ### 部署
 jar 方式启动<br>
@@ -104,17 +104,17 @@ java -jar financial-0.1.jar<br>
 
 开源版截图<br>
 
-![输入图片说明](2.png)
+![输入图片说明](doc/2.png)
 
 商业版截图<br>
 
 > 首页
 
-![输入图片说明](jt.jpeg)
+![输入图片说明](doc/jt.jpeg)
 
 >管理后台
 
-![输入图片说明](admin.png)
+![输入图片说明](doc/admin.png)
 
 
 ### 版权许可
@@ -122,5 +122,5 @@ java -jar financial-0.1.jar<br>
     如需有商业应用需求，可联系我们为您提供个性化的财务软件源码和需求定制方案！
 ### 公司介绍 
 
-官网：[www.fenxi365.com](纷析云) <br>
+官网：[https://www.fenxi365.com] (纷析云) <br>
 纷析云（杭州）科技有限公司
