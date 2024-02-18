@@ -6,7 +6,7 @@ buildscript {
         springBootVersion = '2.3.12.RELEASE'
     }
     repositories {
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -31,7 +31,7 @@ configure(subprojects.findAll { !it.name.contains('front-end') }) {
     }
 
     repositories {
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
     }
 
     dependencies {
