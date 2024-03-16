@@ -3,7 +3,7 @@ plugins {
 }
 
 node {
-    version = '11.1.0'
+    version = '16.6.2'
     yarnVersion = '1.12.3'
     download = true
     distBaseUrl = 'https://npmmirror.com/mirrors/node'
