@@ -13,7 +13,10 @@
 https://f.fenxi365.com/ （开源演示版）<br>
 测试账号：13456781004/123456
 <br>
-
+新手部署请看视频
+<br>
+[纷析云财务软件-开源财务系统-源码运行教学视频](https://www.haolu.com/share/V0JBHYDZ93/49092583d2f4128c7a0785dbfea26eb2)
+<br>
 ### 商业版地址
 纷析云商业版<br>
 https://v4.fenxi365.com/ （商业源码演示版）<br><br>
