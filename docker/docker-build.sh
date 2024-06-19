@@ -1,7 +1,7 @@
  cd ..
 
  echo '开始编译clientFront...'
-./gradlew front-end:dist
+./gradlew front-end:build
 
 rm -rf ./docker/nginx/wwwroot/client/*
 cp -r ./front-end/dist/* ./docker/nginx/wwwroot/client
