@@ -44,19 +44,6 @@ vue2 heyui https://v2.heyui.top/<br>
 springboot 2+ <br>
 mybatis<br><br>
 
-运行配置  <br>
-后端<br>
-![输入图片说明](doc/houduan.png)<br>
-前端<br>
-![输入图片说明](doc/qianduan.png)<br>
-
-### 部署
-jar 方式启动<br>
-java -jar financial-0.1.jar<br>
-
-以Linux程序启动<br>
-./financial-0.1.jar<br>
-
 
 ### 功能对比 
 | 功能模块| 开源版| 商业版[技术重构]| 
