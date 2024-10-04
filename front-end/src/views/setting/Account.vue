@@ -33,12 +33,16 @@
 				<FormItem label="账套启用年月:" prop="enableDate">
 					<DatePicker type="month" v-model="form.enableDate" :disabled="used"/>
 				</FormItem>
-				<FormItem label="统一社会信用代码:">
-					<input type="text" v-model="form.creditCode">
-				</FormItem>
+
 				<FormItem label="会计准则:" prop="accountingStandards">
 					<Radio v-model="form.accountingStandards" dict="accountingStandards" :disabled="!!form.id"></Radio>
 				</FormItem>
+        <FormItem label="增值税种类:" prop="vatType">
+          <Radio v-model="form.vatType" dict="vatRadios"></Radio>
+        </FormItem>
+        <FormItem label="统一社会信用代码:">
+          <input type="text" v-model="form.creditCode">
+        </FormItem>
 				<FormItem label="单位所在地:">
 					<CategoryPicker ref="CategoryPicker" :option="pickerOption" type="key" showAllLevels v-model="form.address"></CategoryPicker>
 				</FormItem>
@@ -51,9 +55,7 @@
 				<!--	<FormItem label="是否启用出纳模块:" prop="cashierModule">
 						<Radio v-model="form.cashierModule" dict="enableRadios"></Radio>
 					</FormItem>-->
-				<FormItem label="增值税种类:" prop="vatType">
-					<Radio v-model="form.vatType" dict="vatRadios"></Radio>
-				</FormItem>
+
 				<FormItem label="凭证是否需要审核:" prop="voucherReviewed">
 					<Radio v-model="form.voucherReviewed" dict="needRadios"></Radio>
 				</FormItem>
