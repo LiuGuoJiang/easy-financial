@@ -2637,7 +2637,7 @@ CREATE TABLE `fxy_financial_user`  (
 -- ----------------------------
 -- Records of fxy_financial_user
 -- ----------------------------
-INSERT INTO `fxy_financial_user` VALUES (1, '13456781004', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', NULL, NULL, '代码哥', 'https://yun.ch-cm.com/img/avatar.66caf070.png', 'Gson', 5, '2019-08-01 23:00:42', NULL, NULL, 1, 1, NULL);
+INSERT INTO `fxy_financial_user` VALUES (1, '13944878765', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', NULL, NULL, '代码哥', 'https://yun.ch-cm.com/img/avatar.66caf070.png', 'Gson', 5, '2019-08-01 23:00:42', NULL, NULL, 1, 1, NULL);
 INSERT INTO `fxy_financial_user` VALUES (2, '13924060407', 'b397a017547e0162ec61083ace25666962ffe554ad9a4e7b9e9bcab6a1bc560d', NULL, NULL, NULL, NULL, '13924060407', 3, '2022-12-23 07:35:54', '488905', NULL, 1, 1, NULL);
 INSERT INTO `fxy_financial_user` VALUES (3, '13829766385', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', NULL, NULL, NULL, NULL, '13829766385', 4, '2022-12-24 05:37:31', '', NULL, 1, 1, NULL);
 INSERT INTO `fxy_financial_user` VALUES (4, '13581832297', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', NULL, NULL, '账套管理员', NULL, '账套管理员2297', 6, '2022-12-26 01:36:14', '', NULL, 1, 1, NULL);

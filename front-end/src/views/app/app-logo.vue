@@ -29,8 +29,8 @@
 		.app-logo-icon {
 			background: url(../../assets/logo.png);
 			background-size: contain;
-			height: 40px;
-			width: 80px;
+			height: 25px;
+			width: 120px;
 			display: inline-block;
 			margin-right: 10px;
 			transition: .3s;
