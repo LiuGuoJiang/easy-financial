@@ -25,7 +25,8 @@
 ### 技术交流群
 
 扫码添加客服进群<br>
-<img src="https://f3.fenxi365.com/api/assets/logo/4d6614c2-4384-487f-ba73-d8a4439f2033.png" height="150px" width="150px"/>
+v:flyemu
+13944878765(同v)
 
 ### 开源版地址
 纷析云开源版<br>
