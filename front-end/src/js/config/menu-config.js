@@ -20,11 +20,6 @@ const Manager = [
 		]
 	},
 	{
-		title: '结账',
-		key: 'CheckList',
-		icon: 'h-icon-complete',
-	},
-	{
 		title: '帐薄',
 		key: 'AccountBooks',
 		icon: 'h-icon-task',
@@ -59,6 +54,11 @@ const Manager = [
 		title: '报表',
 		key: 'ReportList',
 		icon: 'h-icon-search'
+	},
+	{
+		title: '结账',
+		key: 'CheckList',
+		icon: 'h-icon-complete',
 	},
 	{
 		title: '设置',

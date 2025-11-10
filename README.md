@@ -3,6 +3,25 @@
 ### 项目介绍
 **纷析云SAAS云财务软件开源版**<br>
 包含账套、凭证字、科目、期初、币别、账簿、报表、凭证、结账
+
+
+### 项目截图
+
+商业版截图<br>
+
+> 首页
+
+![输入图片说明](doc/jt.jpeg)
+
+开源版截图<br>
+
+![输入图片说明](doc/2.png)
+
+
+>管理后台
+
+![输入图片说明](doc/admin.png)
+
 ### 技术交流群
 
 扫码添加客服进群
@@ -16,7 +35,7 @@
 ### 开源版地址
 纷析云开源版<br>
 https://f.fenxi365.com/ （开源演示版）<br>
-测试账号：13456781004/123456
+测试账号：13944878765/123456
 <br>
 新手部署请看视频
 <br>
@@ -48,19 +67,6 @@ vue2 heyui https://v2.heyui.top/<br>
 后端框架<br>
 springboot 2+ <br>
 mybatis<br><br>
-
-运行配置  <br>
-后端<br>
-![输入图片说明](doc/houduan.png)<br>
-前端<br>
-![输入图片说明](doc/qianduan.png)<br>
-
-### 部署
-jar 方式启动<br>
-java -jar financial-0.1.jar<br>
-
-以Linux程序启动<br>
-./financial-0.1.jar<br>
 
 
 ### 功能对比 
@@ -107,22 +113,6 @@ java -jar financial-0.1.jar<br>
 |数据库|mysql 5.7+|mysql8.0+|
 |短信接口|阿里云|阿里云|
 |前端框架|Vue2,heyui|Vue3,heyui,layer,vxe-table|
-
-### 项目截图
-
-开源版截图<br>
-
-![输入图片说明](doc/2.png)
-
-商业版截图<br>
-
-> 首页
-
-![输入图片说明](doc/jt.jpeg)
-
->管理后台
-
-![输入图片说明](doc/admin.png)
 
 
 ### 版权许可
