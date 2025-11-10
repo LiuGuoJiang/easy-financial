@@ -5,8 +5,13 @@
 包含账套、凭证字、科目、期初、币别、账簿、报表、凭证、结账
 ### 技术交流群
 
-扫码添加客服进群<br>
-<img src="https://f3.fenxi365.com/api/assets/logo/4d6614c2-4384-487f-ba73-d8a4439f2033.png" height="150px" width="150px"/>
+扫码添加客服进群
+
+![wxcode.png](doc/wxcode.png)
+
+关注公众号获取最新财务源码资讯
+
+![纷析云公众号.png](doc/%E7%BA%B7%E6%9E%90%E4%BA%91%E5%85%AC%E4%BC%97%E5%8F%B7.png)
 
 ### 开源版地址
 纷析云开源版<br>
