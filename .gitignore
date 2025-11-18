@@ -8,3 +8,7 @@
 *.ipr
 out
 build
+
+docker/redis
+docker/mysql/data
+docker/nginx/logs

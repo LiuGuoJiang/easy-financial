@@ -1,20 +1,6 @@
-version: "1.0"
-
-networks:
-  financial-ce:
-    name: financial-ce
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - gateway: ${SUBNET_PREFIX:?SUBNET_PREFIX required}.1
-          subnet: ${SUBNET_PREFIX}.0/24
-    driver_opts:
-      com.docker.network.bridge.name: financial-ce
-
 services:
   mysql:
-    image: mysql:8.2.0
+    image: mysql:8.0.33
     # 容器名(以后的控制都通过这个)
     container_name: financial_mysql8
     # 重启策略
@@ -45,9 +31,6 @@ services:
       --collation-server=utf8mb4_general_ci
       --explicit_defaults_for_timestamp=true
       --lower_case_table_names=1
-    networks:
-      financial-ce:
-        ipv4_address: ${SUBNET_PREFIX}.2
 
   redis:
     image: redis:5.0.12
@@ -56,15 +39,12 @@ services:
       - 6479:6379
     volumes:
       - ./redis:/data
-    networks:
-      financial-ce:
-        ipv4_address: ${SUBNET_PREFIX}.3
 
   client:
     container_name: financial_client
     image: openjdk:8u102
     restart: always
-    command: java -server -Xms1024m -Xmx1024m -Dspring.config.import=file:/server/application.yml -Dlogging.path=/logs/client.log -Djava.security.egd=file:/dev/./urandom -jar /server/financial.jar
+    command: java -server -Xms1024m -Xmx1024m -Dspring.config.additional-location=file:/server/application.yml -Dlogging.file.name=/logs/client.log -Djava.security.egd=file:/dev/./urandom -jar /server/financial.jar
     ports:
       - "8888:8080"
     volumes:
@@ -73,17 +53,13 @@ services:
     depends_on:
       - mysql
       - redis
-    networks:
-      financial-ce:
-        ipv4_address: ${SUBNET_PREFIX}.5
 
   nginx:
     container_name: financial_nginx
     image: nginx:1.25.2
     restart: always
-    networks:
-      financial-ce:
-        ipv4_address: ${SUBNET_PREFIX}.6
+    depends_on:
+      - client
     ports:
       - "88:80"
     volumes:

@@ -1,3 +1,5 @@
+JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_301.jdk/Contents/Home"
+
  cd ..
 
  echo '开始编译clientFront...'

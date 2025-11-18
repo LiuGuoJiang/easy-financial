@@ -1,0 +1,154 @@
+2025/11/18 09:00:21 [notice] 1#1: using the "epoll" event method
+2025/11/18 09:00:21 [notice] 1#1: nginx/1.25.2
+2025/11/18 09:00:21 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/11/18 09:00:21 [notice] 1#1: OS: Linux 6.17.4-orbstack-00308-g195e9689a04f
+2025/11/18 09:00:21 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 20480:1048576
+2025/11/18 09:00:21 [notice] 1#1: start worker processes
+2025/11/18 09:00:21 [notice] 1#1: start worker process 21
+2025/11/18 09:00:21 [notice] 1#1: start worker process 22
+2025/11/18 09:00:57 [error] 21#21: *2 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "GET /api/init HTTP/1.1", upstream: "http://198.18.0.28:8080/init", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:01:08 [error] 22#22: *9 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://198.18.0.28:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:01:13 [error] 22#22: *13 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://198.18.0.28:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:01:19 [error] 22#22: *16 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "GET /api/login HTTP/1.1", upstream: "http://198.18.0.28:8080/login", host: "localhost:88"
+2025/11/18 09:01:26 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/11/18 09:01:26 [notice] 22#22: gracefully shutting down
+2025/11/18 09:01:26 [notice] 22#22: exiting
+2025/11/18 09:01:26 [notice] 22#22: exit
+2025/11/18 09:01:26 [notice] 21#21: gracefully shutting down
+2025/11/18 09:01:26 [notice] 21#21: exiting
+2025/11/18 09:01:26 [notice] 21#21: exit
+2025/11/18 09:01:26 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2025/11/18 09:01:26 [notice] 1#1: worker process 21 exited with code 0
+2025/11/18 09:01:26 [notice] 1#1: signal 29 (SIGIO) received
+2025/11/18 09:01:26 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2025/11/18 09:01:26 [notice] 1#1: worker process 22 exited with code 0
+2025/11/18 09:01:26 [notice] 1#1: exit
+2025/11/18 09:01:26 [notice] 1#1: using the "epoll" event method
+2025/11/18 09:01:26 [notice] 1#1: nginx/1.25.2
+2025/11/18 09:01:26 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/11/18 09:01:26 [notice] 1#1: OS: Linux 6.17.4-orbstack-00308-g195e9689a04f
+2025/11/18 09:01:26 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 20480:1048576
+2025/11/18 09:01:26 [notice] 1#1: start worker processes
+2025/11/18 09:01:26 [notice] 1#1: start worker process 20
+2025/11/18 09:01:26 [notice] 1#1: start worker process 21
+2025/11/18 09:03:23 [error] 21#21: *14 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://192.168.107.5:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:03:24 [error] 21#21: *14 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://192.168.107.5:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:03:24 [error] 21#21: *14 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://192.168.107.5:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:03:25 [error] 21#21: *18 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://192.168.107.5:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:03:25 [error] 21#21: *18 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://192.168.107.5:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:05:27 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/11/18 09:05:27 [notice] 20#20: gracefully shutting down
+2025/11/18 09:05:27 [notice] 20#20: exiting
+2025/11/18 09:05:27 [notice] 21#21: gracefully shutting down
+2025/11/18 09:05:27 [notice] 21#21: exiting
+2025/11/18 09:05:27 [notice] 20#20: exit
+2025/11/18 09:05:27 [notice] 21#21: exit
+2025/11/18 09:05:27 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2025/11/18 09:05:27 [notice] 1#1: worker process 20 exited with code 0
+2025/11/18 09:05:27 [notice] 1#1: worker process 21 exited with code 0
+2025/11/18 09:05:27 [notice] 1#1: exit
+2025/11/18 09:05:32 [notice] 1#1: using the "epoll" event method
+2025/11/18 09:05:32 [notice] 1#1: nginx/1.25.2
+2025/11/18 09:05:32 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/11/18 09:05:32 [notice] 1#1: OS: Linux 6.17.4-orbstack-00308-g195e9689a04f
+2025/11/18 09:05:32 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 20480:1048576
+2025/11/18 09:05:32 [notice] 1#1: start worker processes
+2025/11/18 09:05:32 [notice] 1#1: start worker process 21
+2025/11/18 09:05:32 [notice] 1#1: start worker process 22
+2025/11/18 09:05:54 [error] 22#22: *1 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://198.18.0.28:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:05:56 [error] 21#21: *3 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://198.18.0.28:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:05:57 [error] 21#21: *3 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://198.18.0.28:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:05:58 [error] 21#21: *3 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://198.18.0.28:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:05:59 [error] 21#21: *3 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://198.18.0.28:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:05:59 [error] 21#21: *3 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://198.18.0.28:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:06:00 [error] 22#22: *9 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://198.18.0.28:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:06:01 [error] 22#22: *9 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://198.18.0.28:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:06:02 [error] 22#22: *9 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://198.18.0.28:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:06:03 [error] 22#22: *9 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://198.18.0.28:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:06:04 [error] 22#22: *9 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://198.18.0.28:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:06:04 [error] 22#22: *9 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://198.18.0.28:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:06:05 [error] 22#22: *16 upstream prematurely closed connection while reading response header from upstream, client: 192.168.107.1, server: _, request: "POST /api/login HTTP/1.1", upstream: "http://198.18.0.28:8080/login", host: "localhost:88", referrer: "http://localhost:88/"
+2025/11/18 09:06:09 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/11/18 09:06:09 [notice] 21#21: gracefully shutting down
+2025/11/18 09:06:09 [notice] 21#21: exiting
+2025/11/18 09:06:09 [notice] 22#22: gracefully shutting down
+2025/11/18 09:06:09 [notice] 21#21: exit
+2025/11/18 09:06:09 [notice] 22#22: exiting
+2025/11/18 09:06:09 [notice] 22#22: exit
+2025/11/18 09:06:09 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2025/11/18 09:06:09 [notice] 1#1: worker process 21 exited with code 0
+2025/11/18 09:06:09 [notice] 1#1: signal 29 (SIGIO) received
+2025/11/18 09:06:09 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2025/11/18 09:06:09 [notice] 1#1: worker process 22 exited with code 0
+2025/11/18 09:06:09 [notice] 1#1: exit
+2025/11/18 09:06:09 [notice] 1#1: using the "epoll" event method
+2025/11/18 09:06:09 [notice] 1#1: nginx/1.25.2
+2025/11/18 09:06:09 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/11/18 09:06:09 [notice] 1#1: OS: Linux 6.17.4-orbstack-00308-g195e9689a04f
+2025/11/18 09:06:09 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 20480:1048576
+2025/11/18 09:06:09 [notice] 1#1: start worker processes
+2025/11/18 09:06:09 [notice] 1#1: start worker process 20
+2025/11/18 09:06:09 [notice] 1#1: start worker process 21
+2025/11/18 09:07:37 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/11/18 09:07:37 [notice] 21#21: gracefully shutting down
+2025/11/18 09:07:37 [notice] 21#21: exiting
+2025/11/18 09:07:37 [notice] 21#21: exit
+2025/11/18 09:07:37 [notice] 20#20: gracefully shutting down
+2025/11/18 09:07:37 [notice] 20#20: exiting
+2025/11/18 09:07:37 [notice] 20#20: exit
+2025/11/18 09:07:37 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2025/11/18 09:07:37 [notice] 1#1: worker process 20 exited with code 0
+2025/11/18 09:07:37 [notice] 1#1: signal 29 (SIGIO) received
+2025/11/18 09:07:37 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2025/11/18 09:07:37 [notice] 1#1: worker process 21 exited with code 0
+2025/11/18 09:07:37 [notice] 1#1: exit
+2025/11/18 09:07:45 [notice] 1#1: using the "epoll" event method
+2025/11/18 09:07:45 [notice] 1#1: nginx/1.25.2
+2025/11/18 09:07:45 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/11/18 09:07:45 [notice] 1#1: OS: Linux 6.17.4-orbstack-00308-g195e9689a04f
+2025/11/18 09:07:45 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 20480:1048576
+2025/11/18 09:07:45 [notice] 1#1: start worker processes
+2025/11/18 09:07:45 [notice] 1#1: start worker process 20
+2025/11/18 09:07:45 [notice] 1#1: start worker process 21
+2025/11/18 09:11:11 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/11/18 09:11:11 [notice] 20#20: gracefully shutting down
+2025/11/18 09:11:11 [notice] 20#20: exiting
+2025/11/18 09:11:11 [notice] 21#21: gracefully shutting down
+2025/11/18 09:11:11 [notice] 21#21: exiting
+2025/11/18 09:11:11 [notice] 21#21: exit
+2025/11/18 09:11:11 [notice] 20#20: exit
+2025/11/18 09:11:11 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2025/11/18 09:11:11 [notice] 1#1: worker process 21 exited with code 0
+2025/11/18 09:11:11 [notice] 1#1: signal 29 (SIGIO) received
+2025/11/18 09:11:11 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2025/11/18 09:11:11 [notice] 1#1: worker process 20 exited with code 0
+2025/11/18 09:11:11 [notice] 1#1: exit
+2025/11/18 09:11:17 [notice] 1#1: using the "epoll" event method
+2025/11/18 09:11:17 [notice] 1#1: nginx/1.25.2
+2025/11/18 09:11:17 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/11/18 09:11:17 [notice] 1#1: OS: Linux 6.17.4-orbstack-00308-g195e9689a04f
+2025/11/18 09:11:17 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 20480:1048576
+2025/11/18 09:11:17 [notice] 1#1: start worker processes
+2025/11/18 09:11:17 [notice] 1#1: start worker process 19
+2025/11/18 09:11:17 [notice] 1#1: start worker process 20
+2025/11/18 09:12:18 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/11/18 09:12:18 [notice] 19#19: gracefully shutting down
+2025/11/18 09:12:18 [notice] 20#20: gracefully shutting down
+2025/11/18 09:12:18 [notice] 20#20: exiting
+2025/11/18 09:12:18 [notice] 20#20: exit
+2025/11/18 09:12:18 [notice] 19#19: exiting
+2025/11/18 09:12:18 [notice] 19#19: exit
+2025/11/18 09:12:18 [notice] 1#1: signal 17 (SIGCHLD) received from 19
+2025/11/18 09:12:18 [notice] 1#1: worker process 19 exited with code 0
+2025/11/18 09:12:18 [notice] 1#1: signal 29 (SIGIO) received
+2025/11/18 09:12:18 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2025/11/18 09:12:18 [notice] 1#1: worker process 20 exited with code 0
+2025/11/18 09:12:18 [notice] 1#1: exit
+2025/11/18 09:12:22 [notice] 1#1: using the "epoll" event method
+2025/11/18 09:12:22 [notice] 1#1: nginx/1.25.2
+2025/11/18 09:12:22 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/11/18 09:12:22 [notice] 1#1: OS: Linux 6.17.4-orbstack-00308-g195e9689a04f
+2025/11/18 09:12:22 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 20480:1048576
+2025/11/18 09:12:22 [notice] 1#1: start worker processes
+2025/11/18 09:12:22 [notice] 1#1: start worker process 19
+2025/11/18 09:12:22 [notice] 1#1: start worker process 20
