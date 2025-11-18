@@ -66,7 +66,7 @@ services:
     restart: always
     command: java -server -Xms1024m -Xmx1024m -Dspring.config.import=file:/server/application.yml -Dlogging.path=/logs/client.log -Djava.security.egd=file:/dev/./urandom -jar /server/financial.jar
     ports:
-      - "8888:8012"
+      - "8888:8080"
     volumes:
       - ./server/:/server/
       - ./logs/:/logs/
