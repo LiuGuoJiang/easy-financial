@@ -12,3 +12,4 @@ build
 docker/redis
 docker/mysql/data
 docker/nginx/logs
+docker/logs
