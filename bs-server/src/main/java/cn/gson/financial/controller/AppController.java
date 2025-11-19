@@ -1,11 +1,13 @@
 package cn.gson.financial.controller;
 
 import cn.gson.financial.annotation.IgnoresLogin;
+import cn.gson.financial.common.MailUtil;
 import cn.gson.financial.kernel.aliyuncs.SmsService;
 import cn.gson.financial.kernel.controller.JsonResult;
 import cn.gson.financial.kernel.model.entity.User;
 import cn.gson.financial.kernel.model.vo.UserVo;
 import cn.gson.financial.kernel.service.UserService;
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import static cn.gson.financial.kernel.aliyuncs.SmsService.SmsBody;
 
@@ -40,6 +43,8 @@ public class AppController {
     private final UserService userService;
 
     private final SmsService smsService;
+
+    private final MailUtil mailUtil;
 
     @Value("${aliyun.sms.signature}")
     private String smsSignature;
@@ -123,15 +128,48 @@ public class AppController {
     @IgnoresLogin
     @GetMapping("/regMsg/{mobile}")
     public JsonResult regMsg(@PathVariable String mobile, HttpSession session) {
+        // 检查手机号格式是否正确
+        if (!mobile.matches("^1[23456789]\\d{9}$")) {
+            return JsonResult.failure("手机号格式错误！");
+        }
+
         LambdaQueryWrapper<User> qw = Wrappers.lambdaQuery();
         qw.eq(User::getMobile, mobile);
         if (this.userService.count(qw) > 0) {
             return JsonResult.failure("此手机号已被注册，请直接用这个手机号登录或者更换手机号注册！");
         }
         String numeric = RandomStringUtils.randomNumeric(4);
-        log.info("验证码：" + numeric);
-        this.sendSmsCode(mobile, numeric);
+        log.info("验证码：{}", numeric);
         session.setAttribute(mobile, numeric);
+        this.sendSmsCode(mobile, numeric);
+        return JsonResult.successful();
+    }
+
+
+    /**
+     * 注册发送短信验证码
+     *
+     * @param email
+     * @return
+     */
+    @IgnoresLogin
+    @GetMapping("/emailMsg")
+    public JsonResult emailMsg(@RequestParam String email, HttpSession session) {
+        // 检查email格式是否正确
+        if (!email.matches("^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\\.[a-zA-Z0-9_-]{2,3}){1,2})$")) {
+            return JsonResult.failure("邮箱格式错误！");
+        }
+
+        LambdaQueryWrapper<User> qw = Wrappers.lambdaQuery();
+        qw.eq(User::getEmail, email);
+
+        if (this.userService.count(qw) > 0) {
+            return JsonResult.failure("此邮箱已被注册！");
+        }
+        String numeric = RandomStringUtils.randomNumeric(4);
+        log.info("验证码：{}", numeric);
+        session.setAttribute(email, numeric);
+        mailUtil.sendMailCode(email, smsSignature, numeric);
         return JsonResult.successful();
     }
 
@@ -143,30 +181,44 @@ public class AppController {
      */
     @IgnoresLogin
     @PostMapping("/register")
-    public JsonResult register(String mobile, String code, HttpSession session) {
+    public JsonResult register(@RequestParam String mobile, @RequestParam String email, @RequestParam String password, @RequestParam String code, HttpSession session) {
         LambdaQueryWrapper<User> qw = Wrappers.lambdaQuery();
         qw.eq(User::getMobile, mobile);
         if (this.userService.count(qw) > 0) {
             return JsonResult.failure("此手机号已被注册，请直接用这个手机号登录或者更换手机号注册！");
         }
-        if (!code.equals(session.getAttribute(mobile))) {
+        qw = Wrappers.lambdaQuery();
+        qw.eq(User::getEmail, email);
+        if (this.userService.count(qw) > 0) {
+            return JsonResult.failure("此邮箱已被注册！");
+        }
+
+        // 密码强度校验
+        if (!password.matches("^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[~!@#$%^&*()_+`={}:';<>?,./-]).{6,16}$")) {
+            return JsonResult.failure("密码必须包含字母、数字和特殊字符，长度为6-16位！");
+        }
+
+        if (!code.equals(Optional.ofNullable(session.getAttribute(email)).orElse(session.getAttribute(mobile)))) {
             return JsonResult.failure("验证码错误！");
         }
+
         session.removeAttribute(mobile);
+        session.removeAttribute(email);
 
         User user = new User();
         user.setMobile(mobile);
+        user.setEmail(email);
         user.setRealName(mobile);
-        user.setInitPassword(RandomStringUtils.randomNumeric(6));
-        user.setPassword(DigestUtils.sha256Hex(user.getInitPassword()));
+        if (StrUtil.isEmpty(password)) {
+            user.setInitPassword(mobile.substring(6));
+            user.setPassword(DigestUtils.sha256Hex(user.getInitPassword()));
+        } else {
+            user.setPassword(DigestUtils.sha256Hex(password));
+        }
+
         this.userService.save(user);
 
         session.setAttribute("user", this.userService.getUserVo(user.getId()));
-        try {
-            this.sendPasswordSms(user.getMobile(), user.getInitPassword());
-        } catch (Exception e) {
-            log.error("密码短信发送失败！", e);
-        }
         return JsonResult.successful();
     }
 

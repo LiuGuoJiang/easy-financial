@@ -152,3 +152,16 @@
 2025/11/18 09:12:22 [notice] 1#1: start worker processes
 2025/11/18 09:12:22 [notice] 1#1: start worker process 19
 2025/11/18 09:12:22 [notice] 1#1: start worker process 20
+2025/11/19 00:22:53 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/11/19 00:22:53 [notice] 20#20: gracefully shutting down
+2025/11/19 00:22:53 [notice] 19#19: gracefully shutting down
+2025/11/19 00:22:53 [notice] 20#20: exiting
+2025/11/19 00:22:53 [notice] 19#19: exiting
+2025/11/19 00:22:53 [notice] 19#19: exit
+2025/11/19 00:22:53 [notice] 20#20: exit
+2025/11/19 00:22:53 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2025/11/19 00:22:53 [notice] 1#1: worker process 20 exited with code 0
+2025/11/19 00:22:53 [notice] 1#1: signal 29 (SIGIO) received
+2025/11/19 00:22:53 [notice] 1#1: signal 17 (SIGCHLD) received from 19
+2025/11/19 00:22:53 [notice] 1#1: worker process 19 exited with code 0
+2025/11/19 00:22:53 [notice] 1#1: exit

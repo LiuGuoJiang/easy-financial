@@ -8,6 +8,13 @@ spring:
     username: financial
   redis:
     host: 'redis'
+  mail:
+    host: smtp.exmail.qq.com
+    port: 465
+    # 发件人的邮箱
+    username:
+    # 授权码或密码
+    password:
 
 aliyun:
   accessKeyId:

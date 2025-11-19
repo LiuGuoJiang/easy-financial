@@ -2,10 +2,10 @@
 	<div class="login-vue">
 		<div class="login-container">
 			<div class="login-content">
-				<div class="login-title">纷析云 - 财务</div>
+				<div class="login-title">纷析云财税</div>
 				<component v-model="currentComponent" :is="currentComponent"></component>
 			</div>
-			<p class="copyright"> Copyright © 2019 纷析云</p>
+			<p class="copyright"> Copyright © 2019 <a href="https://doc.fenxi365.com" target="_blank">纷析云（杭州）科技有限公司 </a></p>
 		</div>
 	</div>
 </template>

@@ -35,7 +35,25 @@ spring:
         max-idle: 10
         # 连接池中的最小空闲连接
         min-idle: 0
-
+  mail:
+    host: smtp.exmail.qq.com
+    port: 465
+    # 发件人的邮箱
+    username:
+    # 授权码或密码
+    password:
+    # 编码
+    default-encoding: utf-8
+    # 其它参数
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+            required: true
+          timeout: 10000
+          connection-timeout: 10000
+          write-timeout: 10000
 logging:
   level:
     "cn.gson.financial.kernel.model.mapper": debug
