@@ -38,7 +38,7 @@
 						</div>
 						<div class="brand-titles">
 							<h1 class="brand-name">纷析云财税</h1>
-							<p class="brand-slogan">智能财税管理平台</p>
+							<p class="brand-slogan">让每个决策都有数据支撑，让记账更轻松，更智能</p>
 						</div>
 					</div>
 					<div class="brand-features">
@@ -335,20 +335,17 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		text-align: center;
 		width: 100%;
 	}
 
 	.brand-header {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		gap: 24px;
 		margin-bottom: 48px;
 	}
 
 	.brand-logo {
-		width: 200px;
+		width: 130px;
 		height: auto;
 
 		img {
@@ -378,10 +375,11 @@
 	}
 
 	.brand-features {
+    width: 100%;
 		display: flex;
 		flex-direction: row;
 		gap: 32px;
-		justify-content: center;
+		justify-content: space-evenly;
 
 		.feature-item {
 			display: flex;
