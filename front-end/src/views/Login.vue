@@ -2,10 +2,33 @@
 	<div class="login-wrapper">
 		<div class="login-brand">
 			<div class="brand-bg-effects">
+				<!-- 网格背景 -->
 				<div class="grid-pattern"></div>
+				<!-- 渐变光晕 -->
 				<div class="gradient-overlay"></div>
+				<!-- 大光球 -->
 				<div class="glow-orb orb-1"></div>
 				<div class="glow-orb orb-2"></div>
+				<div class="glow-orb orb-3"></div>
+				<div class="glow-orb orb-4"></div>
+				<!-- 浮动几何图形 -->
+				<div class="floating-shape shape-1"></div>
+				<div class="floating-shape shape-2"></div>
+				<div class="floating-shape shape-3"></div>
+				<div class="floating-shape shape-4"></div>
+				<!-- 粒子 -->
+				<div class="particle particle-1"></div>
+				<div class="particle particle-2"></div>
+				<div class="particle particle-3"></div>
+				<div class="particle particle-4"></div>
+				<div class="particle particle-5"></div>
+				<div class="particle particle-6"></div>
+				<div class="particle particle-7"></div>
+				<div class="particle particle-8"></div>
+				<!-- 流动线条 -->
+				<div class="flow-line line-1"></div>
+				<div class="flow-line line-2"></div>
+				<div class="flow-line line-3"></div>
 			</div>
 			<div class="brand-content">
 				<div class="brand-main">
@@ -116,6 +139,7 @@
 				linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
 				linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
 			background-size: 50px 50px;
+			animation: grid-move 20s linear infinite;
 		}
 
 		.gradient-overlay {
@@ -124,30 +148,174 @@
 			background: 
 				radial-gradient(ellipse at 30% 20%, rgba(90, 156, 245, 0.45) 0%, transparent 50%),
 				radial-gradient(ellipse at 70% 80%, rgba(26, 95, 201, 0.35) 0%, transparent 50%);
+			animation: gradient-pulse 8s ease-in-out infinite;
 		}
 
 		.glow-orb {
 			position: absolute;
 			border-radius: 50%;
 			filter: blur(80px);
-			opacity: 0.6;
 
 			&.orb-1 {
-				width: 350px;
-				height: 350px;
-				background: radial-gradient(circle, rgba(90, 156, 245, 0.5) 0%, transparent 70%);
-				top: -120px;
-				right: -80px;
-				animation: float-orb 12s ease-in-out infinite;
+				width: 400px;
+				height: 400px;
+				background: radial-gradient(circle, rgba(90, 156, 245, 0.6) 0%, transparent 70%);
+				top: -150px;
+				right: -100px;
+				animation: orb-float-1 15s ease-in-out infinite;
 			}
 
 			&.orb-2 {
-				width: 280px;
-				height: 280px;
-				background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
-				bottom: 25%;
-				left: -80px;
-				animation: float-orb 9s ease-in-out infinite 3s;
+				width: 300px;
+				height: 300px;
+				background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+				bottom: 30%;
+				left: -100px;
+				animation: orb-float-2 12s ease-in-out infinite;
+			}
+
+			&.orb-3 {
+				width: 250px;
+				height: 250px;
+				background: radial-gradient(circle, rgba(90, 156, 245, 0.5) 0%, transparent 70%);
+				bottom: -80px;
+				right: 20%;
+				animation: orb-float-3 18s ease-in-out infinite;
+			}
+
+			&.orb-4 {
+				width: 200px;
+				height: 200px;
+				background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+				top: 40%;
+				right: 10%;
+				animation: orb-float-4 10s ease-in-out infinite;
+			}
+		}
+
+		.floating-shape {
+			position: absolute;
+			border: 2px solid rgba(255,255,255,0.1);
+			border-radius: 50%;
+
+			&.shape-1 {
+				width: 60px;
+				height: 60px;
+				top: 15%;
+				left: 10%;
+				animation: shape-float 20s ease-in-out infinite;
+			}
+
+			&.shape-2 {
+				width: 40px;
+				height: 40px;
+				top: 60%;
+				right: 15%;
+				border-radius: 8px;
+				transform: rotate(45deg);
+				animation: shape-float 15s ease-in-out infinite reverse;
+			}
+
+			&.shape-3 {
+				width: 80px;
+				height: 80px;
+				bottom: 20%;
+				left: 20%;
+				border: 1px solid rgba(255,255,255,0.08);
+				animation: shape-float 25s ease-in-out infinite;
+			}
+
+			&.shape-4 {
+				width: 30px;
+				height: 30px;
+				top: 30%;
+				right: 25%;
+				border-radius: 4px;
+				transform: rotate(15deg);
+				animation: shape-float 18s ease-in-out infinite reverse;
+			}
+		}
+
+		.particle {
+			position: absolute;
+			width: 4px;
+			height: 4px;
+			background: rgba(255,255,255,0.6);
+			border-radius: 50%;
+
+			&.particle-1 {
+				top: 20%;
+				left: 30%;
+				animation: particle-float 10s ease-in-out infinite;
+			}
+
+			&.particle-2 {
+				top: 40%;
+				left: 70%;
+				animation: particle-float 12s ease-in-out infinite 1s;
+			}
+
+			&.particle-3 {
+				top: 60%;
+				left: 20%;
+				animation: particle-float 8s ease-in-out infinite 2s;
+			}
+
+			&.particle-4 {
+				top: 80%;
+				left: 60%;
+				animation: particle-float 14s ease-in-out infinite 0.5s;
+			}
+
+			&.particle-5 {
+				top: 25%;
+				left: 85%;
+				animation: particle-float 11s ease-in-out infinite 1.5s;
+			}
+
+			&.particle-6 {
+				top: 70%;
+				left: 40%;
+				animation: particle-float 9s ease-in-out infinite 3s;
+			}
+
+			&.particle-7 {
+				top: 10%;
+				left: 50%;
+				animation: particle-float 13s ease-in-out infinite 2.5s;
+			}
+
+			&.particle-8 {
+				top: 50%;
+				left: 90%;
+				animation: particle-float 10s ease-in-out infinite 4s;
+			}
+		}
+
+		.flow-line {
+			position: absolute;
+			background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+			height: 1px;
+
+			&.line-1 {
+				width: 200px;
+				top: 25%;
+				left: 0;
+				animation: flow-right 8s ease-in-out infinite;
+			}
+
+			&.line-2 {
+				width: 150px;
+				top: 55%;
+				left: 0;
+				animation: flow-right 10s ease-in-out infinite 2s;
+			}
+
+			&.line-3 {
+				width: 180px;
+				top: 75%;
+				left: 0;
+				animation: flow-right 9s ease-in-out infinite 4s;
 			}
 		}
 	}
@@ -339,6 +507,7 @@
 		}
 	}
 
+	/* 动画定义 */
 	@keyframes fadeInUp {
 		from {
 			opacity: 0;
@@ -355,9 +524,83 @@
 		to { opacity: 1; }
 	}
 
-	@keyframes float-orb {
-		0%, 100% { transform: translate(0, 0); }
-		50% { transform: translate(12px, -12px); }
+	@keyframes grid-move {
+		0% { transform: translate(0, 0); }
+		100% { transform: translate(50px, 50px); }
+	}
+
+	@keyframes gradient-pulse {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0.7; }
+	}
+
+	@keyframes orb-float-1 {
+		0%, 100% { transform: translate(0, 0) scale(1); }
+		25% { transform: translate(30px, -20px) scale(1.1); }
+		50% { transform: translate(0, -40px) scale(1); }
+		75% { transform: translate(-30px, -20px) scale(0.9); }
+	}
+
+	@keyframes orb-float-2 {
+		0%, 100% { transform: translate(0, 0) scale(1); }
+		33% { transform: translate(20px, 30px) scale(1.05); }
+		66% { transform: translate(-20px, 15px) scale(0.95); }
+	}
+
+	@keyframes orb-float-3 {
+		0%, 100% { transform: translate(0, 0) scale(1); }
+		50% { transform: translate(25px, -25px) scale(1.08); }
+	}
+
+	@keyframes orb-float-4 {
+		0%, 100% { transform: translate(0, 0) scale(1); }
+		40% { transform: translate(-15px, 20px) scale(1.05); }
+		80% { transform: translate(15px, -10px) scale(0.95); }
+	}
+
+	@keyframes shape-float {
+		0%, 100% { 
+			transform: translate(0, 0) rotate(0deg); 
+		}
+		33% { 
+			transform: translate(15px, -15px) rotate(120deg); 
+		}
+		66% { 
+			transform: translate(-10px, 10px) rotate(240deg); 
+		}
+	}
+
+	@keyframes particle-float {
+		0%, 100% { 
+			opacity: 0;
+			transform: translate(0, 0);
+		}
+		10% { 
+			opacity: 0.8;
+		}
+		90% { 
+			opacity: 0.8;
+		}
+		50% { 
+			transform: translate(30px, -50px);
+		}
+	}
+
+	@keyframes flow-right {
+		0% { 
+			transform: translateX(-100%);
+			opacity: 0;
+		}
+		10% { 
+			opacity: 1;
+		}
+		90% { 
+			opacity: 1;
+		}
+		100% { 
+			transform: translateX(calc(100vw));
+			opacity: 0;
+		}
 	}
 
 	@media (max-width: 1024px) {
