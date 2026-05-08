@@ -36,10 +36,22 @@ public class ReportTemplate implements Serializable {
     private String templateKey;
 
     /**
-     * 报表类型：0普通报表，1资产报表
+     * 报表类型：0普通报表，1资产报表，2现金流量表
      */
     @TableField(value = "type")
     private Integer type;
+
+    /**
+     * 是否发布启用。启用模板可在报表列表与预览中使用，停用后仅管理员可维护。
+     */
+    @TableField(value = "is_default")
+    private Boolean isDefault;
+
+    /**
+     * 显示排序。
+     */
+    @TableField(value = "pos")
+    private Integer pos;
 
     @TableField(exist = false)
     private List<ReportTemplateItems> items;
@@ -55,4 +67,8 @@ public class ReportTemplate implements Serializable {
     public static final String COL_TEMPLATE_KEY = "template_key";
 
     public static final String COL_TYPE = "type";
+
+    public static final String COL_IS_DEFAULT = "is_default";
+
+    public static final String COL_POS = "pos";
 }

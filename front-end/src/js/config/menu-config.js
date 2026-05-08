@@ -52,8 +52,18 @@ const Manager = [
 	},
 	{
 		title: '报表',
-		key: 'ReportList',
-		icon: 'h-icon-search'
+		key: 'reports',
+		icon: 'h-icon-search',
+		children: [
+			{
+				title: '报表查看',
+				key: 'ReportList'
+			},
+			{
+				title: '报表模板/自定义报表',
+				key: 'ReportTemplate'
+			}
+		]
 	},
 	{
 		title: '结账',

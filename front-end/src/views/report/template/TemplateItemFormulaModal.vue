@@ -23,6 +23,7 @@
 			</template>
 			<Cell>
 				<Button color="primary" @click="addItem">添加</Button>
+				<Button @click="validate">校验</Button>
 			</Cell>
 		</Row>
 		<Table class="margin-top" :datas="formulas" border>
@@ -119,15 +120,31 @@
 				}
 			},
 			save() {
-				this.loading = false;
+				this.loading = true;
 				Api.report.template.items.formula({
 					formulas: this.formulas,
 					templateItemsId: this.templateItem.id
-				}).then(() => {
+				}).then(({data}) => {
+					if (data && data.length > 0) {
+						this.$Message(data.join('；'));
+						return;
+					}
 					this.showModal = false;
 					this.$emit('success');
 				}).finally(() => {
 					this.loading = false;
+				});
+			},
+			validate() {
+				Api.report.template.items.validateFormula({
+					formulas: this.formulas,
+					templateItemsId: this.templateItem.id
+				}).then(({data}) => {
+					if (data.length === 0) {
+						this.$Message.success('公式校验通过');
+					} else {
+						this.$Message(data.join('；'));
+					}
 				});
 			},
 			addItem() {
