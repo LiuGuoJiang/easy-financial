@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gson.financial.kernel.model.mapper.FundFlowMapper">
+    <resultMap id="BaseResultMap" type="cn.gson.financial.kernel.model.entity.FundFlow">
+        <id column="id" property="id"/>
+        <result column="flow_no" property="flowNo"/>
+        <result column="flow_date" property="flowDate"/>
+        <result column="account_id" property="accountId"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="direction" property="direction"/>
+        <result column="amount" property="amount"/>
+        <result column="balance" property="balance"/>
+        <result column="source_type" property="sourceType"/>
+        <result column="source_id" property="sourceId"/>
+        <result column="voucher_id" property="voucherId"/>
+        <result column="counterparty" property="counterparty"/>
+        <result column="summary" property="summary"/>
+        <result column="reconciled" property="reconciled"/>
+        <result column="account_sets_id" property="accountSetsId"/>
+    </resultMap>
+</mapper>

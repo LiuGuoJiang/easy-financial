@@ -50,6 +50,21 @@ const Manager = [
 			}
 		]
 	},
+
+	{
+		title: '资金',
+		key: 'Funds',
+		icon: 'h-icon-safe',
+		children: [
+			{ title: '账户管理', key: 'FundAccounts' },
+			{ title: '资金类别', key: 'FundCategories' },
+			{ title: '收款', key: 'FundReceipts' },
+			{ title: '付款', key: 'FundPayments' },
+			{ title: '资金流水', key: 'FundFlows' },
+			{ title: '银行对账', key: 'FundBankReconciliation' },
+			{ title: '资金报表', key: 'FundReports' }
+		]
+	},
 	{
 		title: '报表',
 		key: 'reports',
@@ -166,6 +181,21 @@ const Making = [
 			}
 		]
 	},
+
+	{
+		title: '资金',
+		key: 'Funds',
+		icon: 'h-icon-safe',
+		children: [
+			{ title: '账户管理', key: 'FundAccounts' },
+			{ title: '资金类别', key: 'FundCategories' },
+			{ title: '收款', key: 'FundReceipts' },
+			{ title: '付款', key: 'FundPayments' },
+			{ title: '资金流水', key: 'FundFlows' },
+			{ title: '银行对账', key: 'FundBankReconciliation' },
+			{ title: '资金报表', key: 'FundReports' }
+		]
+	},
 	{
 		title: '报表',
 		key: 'ReportList',
@@ -230,6 +260,21 @@ const View = [
 				title: '核算项目余额',
 				key: 'AuxiliaryAccountingBalance'
 			}
+		]
+	},
+
+	{
+		title: '资金',
+		key: 'Funds',
+		icon: 'h-icon-safe',
+		children: [
+			{ title: '账户管理', key: 'FundAccounts' },
+			{ title: '资金类别', key: 'FundCategories' },
+			{ title: '收款', key: 'FundReceipts' },
+			{ title: '付款', key: 'FundPayments' },
+			{ title: '资金流水', key: 'FundFlows' },
+			{ title: '银行对账', key: 'FundBankReconciliation' },
+			{ title: '资金报表', key: 'FundReports' }
 		]
 	},
 	{

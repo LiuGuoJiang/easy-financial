@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gson.financial.kernel.model.mapper.PaymentBillMapper">
+    <resultMap id="BaseResultMap" type="cn.gson.financial.kernel.model.entity.PaymentBill">
+        <id column="id" property="id"/>
+        <result column="bill_no" property="billNo"/>
+        <result column="bill_date" property="billDate"/>
+        <result column="account_id" property="accountId"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="payee" property="payee"/>
+        <result column="amount" property="amount"/>
+        <result column="summary" property="summary"/>
+        <result column="status" property="status"/>
+        <result column="voucher_id" property="voucherId"/>
+        <result column="audit_member_id" property="auditMemberId"/>
+        <result column="audit_member_name" property="auditMemberName"/>
+        <result column="audit_date" property="auditDate"/>
+        <result column="account_sets_id" property="accountSetsId"/>
+    </resultMap>
+</mapper>
