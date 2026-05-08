@@ -1,5 +1,6 @@
 package cn.gson.financial.kernel.service;
 
+import cn.gson.financial.kernel.model.entity.ReportTemplateItems;
 import cn.gson.financial.kernel.model.entity.ReportTemplateItemsFormula;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -21,4 +22,5 @@ public interface ReportTemplateItemsFormulaService extends IService<ReportTempla
 
     int batchInsert(List<ReportTemplateItemsFormula> list);
 
+    List<String> validateFormulas(ReportTemplateItems item, List<ReportTemplateItemsFormula> formulas, Integer accountSetsId);
 }

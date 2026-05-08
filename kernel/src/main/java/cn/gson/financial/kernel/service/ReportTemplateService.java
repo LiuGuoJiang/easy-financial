@@ -25,4 +25,16 @@ public interface ReportTemplateService extends IService<ReportTemplate> {
     int batchInsert(List<ReportTemplate> list);
 
     Map<Integer, ReportDataVo> view(Integer accountSetsId, Long id, Date accountDate);
+
+    List<ReportTemplate> enabledList(Integer accountSetsId);
+
+    ReportTemplate loadForAccount(Integer accountSetsId, Long id, boolean allowDisabled);
+
+    ReportTemplate copy(Integer accountSetsId, Long id);
+
+    void removeForAccount(Integer accountSetsId, Long id);
+
+    void publish(Integer accountSetsId, Long id, Boolean enabled);
+
+    List<String> validate(Integer accountSetsId, Long id);
 }
