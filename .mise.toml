@@ -1,0 +1,4 @@
+[tools]
+# Gradle 5.6.x/Groovy used by this project must run on an older JDK.
+# The Java sources still compile to Java 8 bytecode via sourceCompatibility/targetCompatibility.
+java = "11.0.2"
