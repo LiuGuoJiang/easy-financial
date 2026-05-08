@@ -8,19 +8,21 @@
         <result column="account_sets_id" jdbcType="INTEGER" property="accountSetsId"/>
         <result column="template_key" jdbcType="VARCHAR" property="templateKey"/>
         <result column="type" jdbcType="INTEGER" property="type"/>
+        <result column="is_default" jdbcType="BIT" property="isDefault"/>
+        <result column="pos" jdbcType="INTEGER" property="pos"/>
     </resultMap>
     <sql id="Base_Column_List">
         <!--@mbg.generated-->
-        id, `name`, account_sets_id, template_key, `type`
+        id, `name`, account_sets_id, template_key, `type`, is_default, pos
     </sql>
     <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
         <!--@mbg.generated-->
         insert into fxy_financial_report_template
-        (`name`, account_sets_id, template_key, `type`)
+        (`name`, account_sets_id, template_key, `type`, is_default, pos)
         values
         <foreach collection="list" item="item" separator=",">
             (#{item.name,jdbcType=VARCHAR}, #{item.accountSetsId,jdbcType=INTEGER}, #{item.templateKey,jdbcType=VARCHAR},
-            #{item.type,jdbcType=INTEGER})
+            #{item.type,jdbcType=INTEGER}, #{item.isDefault,jdbcType=BIT}, #{item.pos,jdbcType=INTEGER})
         </foreach>
     </insert>
 </mapper>

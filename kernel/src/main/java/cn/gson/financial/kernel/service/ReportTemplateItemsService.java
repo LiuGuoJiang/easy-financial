@@ -22,6 +22,12 @@ public interface ReportTemplateItemsService extends IService<ReportTemplateItems
 
     int batchInsert(List<ReportTemplateItems> list);
 
+    ReportTemplateItems ensureItemAccess(Integer templateItemsId, Integer accountSetsId);
+
+    void ensureTemplateAccess(Integer templateId, Integer accountSetsId);
+
+    void removeForAccount(Integer templateItemsId, Integer accountSetsId);
+
     /**
      * 保存公式信息
      *
@@ -29,10 +35,6 @@ public interface ReportTemplateItemsService extends IService<ReportTemplateItems
      * @param accountSetsId
      * @param templateItemsId
      */
-    void saveFormula(Integer templateItemsId, List<ReportTemplateItemsFormula> formulas, Integer accountSetsId);
+    List<String> saveFormula(Integer templateItemsId, List<ReportTemplateItemsFormula> formulas, Integer accountSetsId);
 
 }
-
-
-
-

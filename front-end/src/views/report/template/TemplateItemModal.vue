@@ -106,7 +106,7 @@
 						this.templateItemForm.parentId = this.parent.id;
 					}
 					this.loading = true;
-					Api.report.template.items[this.templateItemForm.id ? 'update' : 'save'](Object.assign(this.templateItemForm, {template_id: this.template.id})).then(() => {
+					Api.report.template.items[this.templateItemForm.id ? 'update' : 'save'](Object.assign(this.templateItemForm, {templateId: this.template.id})).then(() => {
 						this.templateItemModel = false;
 						this.$emit("success");
 					}).finally(() => {

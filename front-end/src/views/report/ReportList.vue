@@ -39,7 +39,7 @@
 		},
 		methods: {
 			loadList() {
-				this.$api.report.template.list().then(({data}) => {
+				this.$api.report.template.enabled().then(({data}) => {
 					this.dataList = data;
 				});
 			},
