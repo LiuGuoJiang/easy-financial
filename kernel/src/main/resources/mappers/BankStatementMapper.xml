@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gson.financial.kernel.model.mapper.BankStatementMapper">
+    <resultMap id="BaseResultMap" type="cn.gson.financial.kernel.model.entity.BankStatement">
+        <id column="id" property="id"/>
+        <result column="statement_no" property="statementNo"/>
+        <result column="statement_date" property="statementDate"/>
+        <result column="account_id" property="accountId"/>
+        <result column="direction" property="direction"/>
+        <result column="amount" property="amount"/>
+        <result column="balance" property="balance"/>
+        <result column="counterparty" property="counterparty"/>
+        <result column="summary" property="summary"/>
+        <result column="fund_flow_id" property="fundFlowId"/>
+        <result column="reconcile_status" property="reconcileStatus"/>
+        <result column="account_sets_id" property="accountSetsId"/>
+    </resultMap>
+</mapper>

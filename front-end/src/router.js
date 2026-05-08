@@ -33,6 +33,49 @@ export default new Router({
 				title: '凭证信息'
 			}
 		},
+
+		{
+			path: '/funds/accounts',
+			name: 'FundAccounts',
+			component: () => import('./views/funds/Accounts'),
+			meta: { title: '账户管理' }
+		},
+		{
+			path: '/funds/categories',
+			name: 'FundCategories',
+			component: () => import('./views/funds/Categories'),
+			meta: { title: '资金类别' }
+		},
+		{
+			path: '/funds/receipts',
+			name: 'FundReceipts',
+			component: () => import('./views/funds/Receipts'),
+			meta: { title: '收款' }
+		},
+		{
+			path: '/funds/payments',
+			name: 'FundPayments',
+			component: () => import('./views/funds/Payments'),
+			meta: { title: '付款' }
+		},
+		{
+			path: '/funds/flows',
+			name: 'FundFlows',
+			component: () => import('./views/funds/Flows'),
+			meta: { title: '资金流水' }
+		},
+		{
+			path: '/funds/bank-reconciliation',
+			name: 'FundBankReconciliation',
+			component: () => import('./views/funds/BankReconciliation'),
+			meta: { title: '银行对账' }
+		},
+		{
+			path: '/funds/reports',
+			name: 'FundReports',
+			component: () => import('./views/funds/Reports'),
+			meta: { title: '资金报表' }
+		},
 		{
 			path: '/check-out',
 			name: 'CheckOut',
