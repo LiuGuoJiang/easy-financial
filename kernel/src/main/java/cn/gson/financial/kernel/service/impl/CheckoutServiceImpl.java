@@ -12,6 +12,8 @@ import cn.gson.financial.kernel.model.mapper.VoucherDetailsMapper;
 import cn.gson.financial.kernel.model.mapper.VoucherMapper;
 import cn.gson.financial.kernel.model.vo.UserVo;
 import cn.gson.financial.kernel.service.CheckoutService;
+import cn.gson.financial.kernel.service.DepreciationService;
+import cn.gson.financial.kernel.exception.ServiceException;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -45,6 +47,7 @@ public class CheckoutServiceImpl extends ServiceImpl<CheckoutMapper, Checkout> i
     private VoucherDetailsMapper voucherDetailsMapper;
     private VoucherMapper voucherMapper;
     private AccountSetsMapper accountSetsMapper;
+    private DepreciationService depreciationService;
 
     @Override
     public int batchInsert(List<Checkout> list) {
@@ -156,6 +159,10 @@ public class CheckoutServiceImpl extends ServiceImpl<CheckoutMapper, Checkout> i
      */
     @Override
     public boolean invoicing(UserVo user, Integer year, Integer month) {
+        if (depreciationService.hasDepreciableAssets(user.getAccountSetsId(), year, month)
+                && !depreciationService.isDepreciationGenerated(user.getAccountSetsId(), year, month)) {
+            throw new ServiceException("当期固定资产折旧未生成，不能结账！");
+        }
         Calendar instance = Calendar.getInstance();
         instance.set(Calendar.YEAR, year);
         instance.set(Calendar.MONTH, month - 1);

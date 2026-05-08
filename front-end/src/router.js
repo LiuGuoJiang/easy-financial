@@ -34,6 +34,43 @@ export default new Router({
 			}
 		},
 
+
+		{
+			path: '/fixed-assets/cards',
+			name: 'FixedAssetCards',
+			component: () => import('./views/fixed-assets/Cards'),
+			meta: { title: '资产卡片' }
+		},
+		{
+			path: '/fixed-assets/categories',
+			name: 'FixedAssetCategories',
+			component: () => import('./views/fixed-assets/Categories'),
+			meta: { title: '资产类别' }
+		},
+		{
+			path: '/fixed-assets/depreciation',
+			name: 'FixedAssetDepreciation',
+			component: () => import('./views/fixed-assets/Depreciation'),
+			meta: { title: '折旧计提' }
+		},
+		{
+			path: '/fixed-assets/changes',
+			name: 'FixedAssetChanges',
+			component: () => import('./views/fixed-assets/Changes'),
+			meta: { title: '资产变动' }
+		},
+		{
+			path: '/fixed-assets/disposals',
+			name: 'FixedAssetDisposals',
+			component: () => import('./views/fixed-assets/Disposals'),
+			meta: { title: '资产处置' }
+		},
+		{
+			path: '/fixed-assets/reports',
+			name: 'FixedAssetReports',
+			component: () => import('./views/fixed-assets/Reports'),
+			meta: { title: '资产报表' }
+		},
 		{
 			path: '/funds/accounts',
 			name: 'FundAccounts',
