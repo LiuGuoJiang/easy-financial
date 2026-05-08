@@ -3006,4 +3006,128 @@ INSERT INTO `fxy_financial_voucher_word` VALUES (22, '收', '收款凭证', b'0'
 INSERT INTO `fxy_financial_voucher_word` VALUES (23, '付', '付款凭证', b'0', 6);
 INSERT INTO `fxy_financial_voucher_word` VALUES (24, '转', '转账凭证', b'0', 6);
 
+
+-- ----------------------------
+-- Payroll module tables
+-- ----------------------------
+CREATE TABLE IF NOT EXISTS `fxy_financial_payroll_department` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `dept_code` varchar(32) NOT NULL COMMENT '部门编码',
+  `dept_name` varchar(64) NOT NULL COMMENT '部门名称',
+  `parent_id` int DEFAULT NULL,
+  `manager_employee_id` int DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `enabled` bit(1) NOT NULL DEFAULT b'1',
+  `account_sets_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_payroll_dept_account` (`account_sets_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='工资部门';
+
+CREATE TABLE IF NOT EXISTS `fxy_financial_employee` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `employee_no` varchar(32) NOT NULL COMMENT '工号',
+  `employee_name` varchar(64) NOT NULL COMMENT '姓名',
+  `department_id` int DEFAULT NULL,
+  `department_name` varchar(64) DEFAULT NULL,
+  `gender` varchar(16) DEFAULT NULL,
+  `id_card_no` varchar(32) DEFAULT NULL,
+  `phone` varchar(32) DEFAULT NULL,
+  `bank_name` varchar(64) DEFAULT NULL,
+  `bank_account` varchar(64) DEFAULT NULL,
+  `entry_date` date DEFAULT NULL,
+  `leave_date` date DEFAULT NULL,
+  `status` varchar(16) NOT NULL DEFAULT 'ACTIVE',
+  `base_salary` decimal(18,2) DEFAULT 0,
+  `expense_subject_id` int DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `account_sets_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_employee_no_account` (`employee_no`,`account_sets_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='员工档案';
+
+CREATE TABLE IF NOT EXISTS `fxy_financial_payroll_item` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `item_code` varchar(64) NOT NULL COMMENT '项目编码',
+  `item_name` varchar(64) NOT NULL COMMENT '项目名称',
+  `item_type` varchar(32) NOT NULL COMMENT 'EARNING/DEDUCTION/NET/COMPANY',
+  `formula` varchar(512) DEFAULT NULL COMMENT '计算公式',
+  `system_item` bit(1) NOT NULL DEFAULT b'0',
+  `enabled` bit(1) NOT NULL DEFAULT b'1',
+  `sort_no` int DEFAULT 0,
+  `expense_subject_id` int DEFAULT NULL,
+  `payable_subject_id` int DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `account_sets_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_payroll_item_code_account` (`item_code`,`account_sets_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='薪资项目';
+
+CREATE TABLE IF NOT EXISTS `fxy_financial_payroll_period` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `payroll_year` int NOT NULL,
+  `payroll_month` int NOT NULL,
+  `begin_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `status` varchar(16) NOT NULL DEFAULT 'OPEN',
+  `account_sets_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_payroll_period_account` (`payroll_year`,`payroll_month`,`account_sets_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='工资期间';
+
+CREATE TABLE IF NOT EXISTS `fxy_financial_payroll_sheet` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `period_id` int NOT NULL,
+  `payroll_year` int NOT NULL,
+  `payroll_month` int NOT NULL,
+  `sheet_no` varchar(32) NOT NULL,
+  `sheet_name` varchar(128) NOT NULL,
+  `status` varchar(16) NOT NULL DEFAULT 'DRAFT',
+  `gross_amount` decimal(18,2) DEFAULT 0,
+  `deduction_amount` decimal(18,2) DEFAULT 0,
+  `net_amount` decimal(18,2) DEFAULT 0,
+  `voucher_id` int DEFAULT NULL,
+  `audit_member_id` int DEFAULT NULL,
+  `audit_member_name` varchar(64) DEFAULT NULL,
+  `audit_date` datetime DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  `account_sets_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_payroll_sheet_period_account` (`period_id`,`account_sets_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='工资表';
+
+CREATE TABLE IF NOT EXISTS `fxy_financial_payroll_detail` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `sheet_id` int NOT NULL,
+  `employee_id` int NOT NULL,
+  `employee_no` varchar(32) DEFAULT NULL,
+  `employee_name` varchar(64) DEFAULT NULL,
+  `department_id` int DEFAULT NULL,
+  `department_name` varchar(64) DEFAULT NULL,
+  `item_id` int NOT NULL,
+  `item_code` varchar(64) DEFAULT NULL,
+  `item_name` varchar(64) DEFAULT NULL,
+  `item_type` varchar(32) DEFAULT NULL,
+  `amount` decimal(18,2) DEFAULT 0,
+  `expense_subject_id` int DEFAULT NULL,
+  `account_sets_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_payroll_detail_sheet` (`sheet_id`,`account_sets_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='工资明细';
+
+CREATE TABLE IF NOT EXISTS `fxy_financial_payroll_config` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `config_type` varchar(32) NOT NULL COMMENT 'IIT/SOCIAL_SECURITY/HOUSING_FUND',
+  `config_name` varchar(64) NOT NULL,
+  `personal_rate` decimal(10,4) DEFAULT 0,
+  `company_rate` decimal(10,4) DEFAULT 0,
+  `base_amount` decimal(18,2) DEFAULT 0,
+  `threshold_amount` decimal(18,2) DEFAULT 0,
+  `tax_brackets` varchar(1024) DEFAULT NULL,
+  `enabled` bit(1) NOT NULL DEFAULT b'1',
+  `remark` varchar(255) DEFAULT NULL,
+  `account_sets_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_payroll_config_account` (`config_type`,`account_sets_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='个税/社保公积金配置';
+
 SET FOREIGN_KEY_CHECKS = 1;

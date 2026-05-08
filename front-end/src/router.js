@@ -71,6 +71,43 @@ export default new Router({
 			component: () => import('./views/fixed-assets/Reports'),
 			meta: { title: '资产报表' }
 		},
+
+		{
+			path: '/payroll/employees',
+			name: 'PayrollEmployees',
+			component: () => import('./views/payroll/Employees'),
+			meta: { title: '员工档案' }
+		},
+		{
+			path: '/payroll/items',
+			name: 'PayrollItems',
+			component: () => import('./views/payroll/Items'),
+			meta: { title: '薪资项目' }
+		},
+		{
+			path: '/payroll/entry',
+			name: 'PayrollEntry',
+			component: () => import('./views/payroll/Entry'),
+			meta: { title: '工资录入' }
+		},
+		{
+			path: '/payroll/calculate',
+			name: 'PayrollCalculate',
+			component: () => import('./views/payroll/Calculate'),
+			meta: { title: '工资计算' }
+		},
+		{
+			path: '/payroll/payment',
+			name: 'PayrollPayment',
+			component: () => import('./views/payroll/Payment'),
+			meta: { title: '工资发放' }
+		},
+		{
+			path: '/payroll/voucher',
+			name: 'PayrollVoucher',
+			component: () => import('./views/payroll/Voucher'),
+			meta: { title: '生成凭证' }
+		},
 		{
 			path: '/funds/accounts',
 			name: 'FundAccounts',

@@ -66,6 +66,20 @@ const Manager = [
 		]
 	},
 
+
+	{
+		title: '工资',
+		key: 'Payroll',
+		icon: 'h-icon-user',
+		children: [
+			{ title: '员工档案', key: 'PayrollEmployees' },
+			{ title: '薪资项目', key: 'PayrollItems' },
+			{ title: '工资录入', key: 'PayrollEntry' },
+			{ title: '工资计算', key: 'PayrollCalculate' },
+			{ title: '工资发放', key: 'PayrollPayment' },
+			{ title: '生成凭证', key: 'PayrollVoucher' }
+		]
+	},
 	{
 		title: '固定资产',
 		key: 'FixedAssets',
@@ -211,6 +225,20 @@ const Making = [
 		]
 	},
 
+
+	{
+		title: '工资',
+		key: 'Payroll',
+		icon: 'h-icon-user',
+		children: [
+			{ title: '员工档案', key: 'PayrollEmployees' },
+			{ title: '薪资项目', key: 'PayrollItems' },
+			{ title: '工资录入', key: 'PayrollEntry' },
+			{ title: '工资计算', key: 'PayrollCalculate' },
+			{ title: '工资发放', key: 'PayrollPayment' },
+			{ title: '生成凭证', key: 'PayrollVoucher' }
+		]
+	},
 	{
 		title: '固定资产',
 		key: 'FixedAssets',
@@ -306,6 +334,20 @@ const View = [
 		]
 	},
 
+
+	{
+		title: '工资',
+		key: 'Payroll',
+		icon: 'h-icon-user',
+		children: [
+			{ title: '员工档案', key: 'PayrollEmployees' },
+			{ title: '薪资项目', key: 'PayrollItems' },
+			{ title: '工资录入', key: 'PayrollEntry' },
+			{ title: '工资计算', key: 'PayrollCalculate' },
+			{ title: '工资发放', key: 'PayrollPayment' },
+			{ title: '生成凭证', key: 'PayrollVoucher' }
+		]
+	},
 	{
 		title: '固定资产',
 		key: 'FixedAssets',
