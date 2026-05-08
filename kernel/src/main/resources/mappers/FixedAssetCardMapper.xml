@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gson.financial.kernel.model.mapper.FixedAssetCardMapper">
+    <resultMap id="BaseResultMap" type="cn.gson.financial.kernel.model.entity.FixedAssetCard">
+        <id column="id" property="id"/>
+        <result column="asset_no" property="assetNo"/>
+        <result column="asset_name" property="assetName"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="specification" property="specification"/>
+        <result column="department" property="department"/>
+        <result column="custodian" property="custodian"/>
+        <result column="purchase_date" property="purchaseDate"/>
+        <result column="start_use_date" property="startUseDate"/>
+        <result column="original_value" property="originalValue"/>
+        <result column="net_salvage_rate" property="netSalvageRate"/>
+        <result column="expected_salvage" property="expectedSalvage"/>
+        <result column="useful_months" property="usefulMonths"/>
+        <result column="depreciation_method" property="depreciationMethod"/>
+        <result column="depreciated_months" property="depreciatedMonths"/>
+        <result column="accumulated_depreciation" property="accumulatedDepreciation"/>
+        <result column="net_value" property="netValue"/>
+        <result column="fixed_asset_subject_id" property="fixedAssetSubjectId"/>
+        <result column="accumulated_depreciation_subject_id" property="accumulatedDepreciationSubjectId"/>
+        <result column="depreciation_expense_subject_id" property="depreciationExpenseSubjectId"/>
+        <result column="status" property="status"/>
+        <result column="voucher_id" property="voucherId"/>
+        <result column="remark" property="remark"/>
+        <result column="account_sets_id" property="accountSetsId"/>
+        <result column="create_date" property="createDate"/>
+    </resultMap>
+</mapper>

@@ -65,6 +65,20 @@ const Manager = [
 			{ title: '资金报表', key: 'FundReports' }
 		]
 	},
+
+	{
+		title: '固定资产',
+		key: 'FixedAssets',
+		icon: 'h-icon-inbox',
+		children: [
+			{ title: '资产卡片', key: 'FixedAssetCards' },
+			{ title: '资产类别', key: 'FixedAssetCategories' },
+			{ title: '折旧计提', key: 'FixedAssetDepreciation' },
+			{ title: '资产变动', key: 'FixedAssetChanges' },
+			{ title: '资产处置', key: 'FixedAssetDisposals' },
+			{ title: '资产报表', key: 'FixedAssetReports' }
+		]
+	},
 	{
 		title: '报表',
 		key: 'reports',
@@ -196,6 +210,20 @@ const Making = [
 			{ title: '资金报表', key: 'FundReports' }
 		]
 	},
+
+	{
+		title: '固定资产',
+		key: 'FixedAssets',
+		icon: 'h-icon-inbox',
+		children: [
+			{ title: '资产卡片', key: 'FixedAssetCards' },
+			{ title: '资产类别', key: 'FixedAssetCategories' },
+			{ title: '折旧计提', key: 'FixedAssetDepreciation' },
+			{ title: '资产变动', key: 'FixedAssetChanges' },
+			{ title: '资产处置', key: 'FixedAssetDisposals' },
+			{ title: '资产报表', key: 'FixedAssetReports' }
+		]
+	},
 	{
 		title: '报表',
 		key: 'ReportList',
@@ -275,6 +303,20 @@ const View = [
 			{ title: '资金流水', key: 'FundFlows' },
 			{ title: '银行对账', key: 'FundBankReconciliation' },
 			{ title: '资金报表', key: 'FundReports' }
+		]
+	},
+
+	{
+		title: '固定资产',
+		key: 'FixedAssets',
+		icon: 'h-icon-inbox',
+		children: [
+			{ title: '资产卡片', key: 'FixedAssetCards' },
+			{ title: '资产类别', key: 'FixedAssetCategories' },
+			{ title: '折旧计提', key: 'FixedAssetDepreciation' },
+			{ title: '资产变动', key: 'FixedAssetChanges' },
+			{ title: '资产处置', key: 'FixedAssetDisposals' },
+			{ title: '资产报表', key: 'FixedAssetReports' }
 		]
 	},
 	{

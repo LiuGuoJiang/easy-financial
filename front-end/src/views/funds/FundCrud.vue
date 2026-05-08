@@ -64,7 +64,11 @@
 				default: true
 			},
 			auditable: Boolean,
-			reconcile: Boolean
+			reconcile: Boolean,
+			apiModule: {
+				type: String,
+				default: 'funds'
+			}
 		},
 		data() {
 			return {
@@ -80,7 +84,7 @@
 		},
 		computed: {
 			api() {
-				return this.$api.funds[this.apiName]
+				return this.$api[this.apiModule][this.apiName]
 			},
 			operationWidth() {
 				return this.auditable ? 220 : 160
