@@ -12,25 +12,27 @@
         <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl"/>
         <result column="real_name" jdbcType="VARCHAR" property="realName"/>
         <result column="account_sets_id" jdbcType="INTEGER" property="accountSetsId"/>
+        <result column="tenant_id" jdbcType="INTEGER" property="tenantId"/>
+        <result column="platform_role" jdbcType="VARCHAR" property="platformRole"/>
         <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
         <result column="init_password" jdbcType="VARCHAR" property="initPassword"/>
         <result column="email" jdbcType="VARCHAR" property="email"/>
     </resultMap>
     <sql id="Base_Column_List">
         <!--@mbg.generated-->
-        id, mobile, `password`, union_id, open_id, nickname, avatar_url, real_name, account_sets_id,
+        id, mobile, `password`, union_id, open_id, nickname, avatar_url, real_name, account_sets_id, tenant_id, platform_role,
         create_date, init_password, email
     </sql>
     <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
         <!--@mbg.generated-->
         insert into fxy_financial_user
-        (mobile, `password`, union_id, open_id, nickname, avatar_url, real_name, account_sets_id,
+        (mobile, `password`, union_id, open_id, nickname, avatar_url, real_name, account_sets_id, tenant_id, platform_role,
         create_date, init_password, email)
         values
         <foreach collection="list" item="item" separator=",">
             (#{item.mobile,jdbcType=VARCHAR}, #{item.password,jdbcType=VARCHAR}, #{item.unionId,jdbcType=VARCHAR},
             #{item.openId,jdbcType=VARCHAR}, #{item.nickname,jdbcType=VARCHAR}, #{item.avatarUrl,jdbcType=VARCHAR},
-            #{item.realName,jdbcType=VARCHAR}, #{item.accountSetsId,jdbcType=INTEGER}, #{item.createDate,jdbcType=TIMESTAMP},
+            #{item.realName,jdbcType=VARCHAR}, #{item.accountSetsId,jdbcType=INTEGER}, #{item.tenantId,jdbcType=INTEGER}, #{item.platformRole,jdbcType=VARCHAR}, #{item.createDate,jdbcType=TIMESTAMP},
             #{item.initPassword,jdbcType=VARCHAR}, #{item.email,jdbcType=VARCHAR})
         </foreach>
     </insert>

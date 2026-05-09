@@ -83,6 +83,12 @@ public class Subject implements Serializable {
     private Integer accountSetsId;
 
     /**
+     * 租户 ID，用于商业化多租户隔离
+     */
+    @TableField(value = "tenant_id")
+    private Integer tenantId;
+
+    /**
      * 科目余额
      */
     @TableField(value = "balance")
@@ -123,6 +129,8 @@ public class Subject implements Serializable {
     public static final String COL_SYSTEM_DEFAULT = "system_default";
 
     public static final String COL_ACCOUNT_SETS_ID = "account_sets_id";
+
+    public static final String COL_TENANT_ID = "tenant_id";
 
     public static final String COL_BALANCE = "balance";
 

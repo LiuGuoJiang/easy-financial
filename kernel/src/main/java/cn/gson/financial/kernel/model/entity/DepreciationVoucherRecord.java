@@ -42,5 +42,11 @@ public class DepreciationVoucherRecord implements Serializable {
     @TableField(value = "account_sets_id")
     private Integer accountSetsId;
 
+    /**
+     * 租户 ID，用于商业化多租户隔离
+     */
+    @TableField(value = "tenant_id")
+    private Integer tenantId;
+
     private static final long serialVersionUID = 1L;
 }

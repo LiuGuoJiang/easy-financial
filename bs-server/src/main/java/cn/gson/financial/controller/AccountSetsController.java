@@ -3,20 +3,24 @@ package cn.gson.financial.controller;
 import cn.gson.financial.base.BaseCrudController;
 import cn.gson.financial.kernel.controller.JsonResult;
 import cn.gson.financial.kernel.model.entity.AccountSets;
+import cn.gson.financial.kernel.model.entity.OperationAuditLog;
 import cn.gson.financial.kernel.model.entity.UserAccountSets;
 import cn.gson.financial.kernel.model.entity.Voucher;
 import cn.gson.financial.kernel.service.AccountSetsService;
+import cn.gson.financial.kernel.service.OperationAuditLogService;
 import cn.gson.financial.kernel.service.UserAccountSetsService;
 import cn.gson.financial.kernel.service.UserService;
 import cn.gson.financial.kernel.service.VoucherService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.alibaba.fastjson.JSON;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -45,6 +49,8 @@ public class AccountSetsController extends BaseCrudController<AccountSetsService
 
     private UserService userService;
 
+    private OperationAuditLogService operationAuditLogService;
+
     @Override
     public JsonResult list(Map<String, String> params) {
         // 1.从中间表查出当前用户的所有账套
@@ -70,6 +76,7 @@ public class AccountSetsController extends BaseCrudController<AccountSetsService
         try {
             entity.setCurrentAccountDate(entity.getEnableDate());
             entity.setCreatorId(this.currentUser.getId());
+            entity.setTenantId(this.currentUser.getTenantId());
             service.save(entity);
 
             //更新 Session 中的用户信息
@@ -84,7 +91,11 @@ public class AccountSetsController extends BaseCrudController<AccountSetsService
 
     @Override
     public JsonResult update(@RequestBody AccountSets entity) {
+        AccountSets before = entity.getId() == null ? null : service.getById(entity.getId());
         JsonResult result = super.update(entity);
+        if (result.isSuccess()) {
+            audit("UPDATE", before, entity);
+        }
         if (result.isSuccess() && entity.getId().equals(this.accountSetsId)) {
             //更新 Session 中的用户信息
             session.setAttribute("user", this.userService.getUserVo(this.currentUser.getId()));
@@ -202,11 +213,34 @@ public class AccountSetsController extends BaseCrudController<AccountSetsService
             return JsonResult.failure("验证码错误！");
         }
         session.removeAttribute(this.currentUser.getMobile());
+        AccountSets before = service.getById(id);
         JsonResult rs = super.delete(id);
         if (rs.isSuccess()) {
+            audit("DELETE", before, null);
             //更新 Session 中的用户信息
             session.setAttribute("user", this.userService.getUserVo(this.currentUser.getId()));
         }
         return rs;
     }
+
+    private void audit(String action, AccountSets before, AccountSets after) {
+        OperationAuditLog auditLog = new OperationAuditLog();
+        auditLog.setTenantId(tenantId);
+        if (currentUser != null) {
+            auditLog.setOperatorId(currentUser.getId());
+            auditLog.setOperatorName(currentUser.getRealName() == null ? currentUser.getMobile() : currentUser.getRealName());
+        }
+        AccountSets target = after == null ? before : after;
+        auditLog.setTargetType("ACCOUNT_SET");
+        auditLog.setTargetId(target == null ? null : target.getId());
+        auditLog.setAction(action);
+        auditLog.setBeforeValue(before == null ? null : JSON.toJSONString(before));
+        auditLog.setAfterValue(after == null ? null : JSON.toJSONString(after));
+        auditLog.setCreateDate(new Date());
+        if (request != null) {
+            auditLog.setIp(request.getRemoteAddr());
+        }
+        operationAuditLogService.save(auditLog);
+    }
+
 }

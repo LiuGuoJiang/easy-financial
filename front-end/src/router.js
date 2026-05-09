@@ -16,6 +16,15 @@ export default new Router({
 				title: '让每个决策都有数据支撑'
 			}
 		},
+
+		{
+			path: '/admin',
+			name: 'AdminConsole',
+			component: () => import('./views/admin/Index'),
+			meta: {
+				title: '商业化运营后台'
+			}
+		},
 		{
 			path: '/voucher',
 			name: 'Voucher',

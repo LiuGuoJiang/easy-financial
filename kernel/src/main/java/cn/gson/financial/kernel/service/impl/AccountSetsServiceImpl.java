@@ -108,10 +108,16 @@ public class AccountSetsServiceImpl extends ServiceImpl<AccountSetsMapper, Accou
             throw new ServiceException("亲，此用户已经拥有此账套权限！", 502);
         }
 
+        AccountSets accountSets = this.baseMapper.selectById(accountSetsId);
+        if (user.getTenantId() == null && accountSets != null) {
+            user.setTenantId(accountSets.getTenantId());
+        }
+
         //添加关系
         UserAccountSets userAccountSets = new UserAccountSets();
         userAccountSets.setAccountSetsId(accountSetsId);
         userAccountSets.setUserId(user.getId());
+        userAccountSets.setTenantId(accountSets == null ? user.getTenantId() : accountSets.getTenantId());
         userAccountSets.setRoleType(Roles.valueOf(role).name());
         userAccountSetsMapper.insert(userAccountSets);
 
@@ -128,6 +134,8 @@ public class AccountSetsServiceImpl extends ServiceImpl<AccountSetsMapper, Accou
         user.setNickname(Roles.valueOf(role).display);
         user.setRealName(Roles.valueOf(role).display + mobile.substring(7));
         user.setAccountSetsId(accountSetsId);
+        AccountSets accountSets = this.baseMapper.selectById(accountSetsId);
+        user.setTenantId(accountSets == null ? null : accountSets.getTenantId());
         user.setInitPassword(RandomStringUtils.randomNumeric(6));
         user.setPassword(DigestUtils.sha256Hex(user.getInitPassword()));
         this.userMapper.insert(user);
@@ -135,6 +143,7 @@ public class AccountSetsServiceImpl extends ServiceImpl<AccountSetsMapper, Accou
         UserAccountSets userAccountSets = new UserAccountSets();
         userAccountSets.setAccountSetsId(accountSetsId);
         userAccountSets.setUserId(user.getId());
+        userAccountSets.setTenantId(user.getTenantId());
         userAccountSets.setRoleType(Roles.valueOf(role).name());
         this.userAccountSetsMapper.insert(userAccountSets);
 
@@ -224,6 +233,7 @@ public class AccountSetsServiceImpl extends ServiceImpl<AccountSetsMapper, Accou
             UserAccountSets userAccountSets = new UserAccountSets();
             userAccountSets.setAccountSetsId(accountSetsId);
             userAccountSets.setUserId(user.getId());
+            userAccountSets.setTenantId(accountSets.getTenantId());
             userAccountSets.setRoleType(Roles.Manager.name());
             this.userAccountSetsMapper.insert(userAccountSets);
         }

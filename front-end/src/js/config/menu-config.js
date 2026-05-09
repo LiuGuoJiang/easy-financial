@@ -1,4 +1,10 @@
 const Manager = [
+
+	{
+		title: '运营后台',
+		key: 'AdminConsole',
+		icon: 'h-icon-setting'
+	},
 	{
 		title: '主页',
 		key: 'Home',
@@ -379,7 +385,12 @@ const View = [
 	}
 ];
 
+const PlatformAdmin = Manager;
+const MerchantAdmin = Manager;
+
 export default {
+	PlatformAdmin,
+	MerchantAdmin,
 	Manager,
 	Making,
 	View

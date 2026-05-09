@@ -23,13 +23,19 @@ public abstract class BaseController {
 
     protected Integer accountSetsId;
 
+    protected Integer tenantId;
+
     protected HttpSession session;
+
+    protected HttpServletRequest request;
 
     @ModelAttribute
     public void common(HttpServletRequest request, HttpSession session) {
+        this.request = request;
         this.currentUser = (UserVo) request.getSession().getAttribute("user");
         if (this.currentUser != null) {
             this.accountSetsId = this.currentUser.getAccountSetsId();
+            this.tenantId = this.currentUser.getTenantId();
         }
         this.session = session;
     }

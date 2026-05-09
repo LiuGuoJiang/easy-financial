@@ -68,6 +68,18 @@ public class User implements Serializable {
     @TableField(value = "account_sets_id", updateStrategy = FieldStrategy.IGNORED)
     private Integer accountSetsId;
 
+    /**
+     * 租户 ID，用于商业化多租户隔离
+     */
+    @TableField(value = "tenant_id")
+    private Integer tenantId;
+
+    /**
+     * 平台级角色：PlatformAdmin、MerchantAdmin 或普通业务用户
+     */
+    @TableField(value = "platform_role")
+    private String platformRole;
+
     @TableField(value = "create_date")
     private Date createDate;
 
@@ -102,6 +114,10 @@ public class User implements Serializable {
     public static final String COL_REAL_NAME = "real_name";
 
     public static final String COL_ACCOUNT_SETS_ID = "account_sets_id";
+
+    public static final String COL_TENANT_ID = "tenant_id";
+
+    public static final String COL_PLATFORM_ROLE = "platform_role";
 
     public static final String COL_CREATE_DATE = "create_date";
 

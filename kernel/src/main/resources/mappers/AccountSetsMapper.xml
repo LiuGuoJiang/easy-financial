@@ -5,6 +5,7 @@
     <!--@mbg.generated-->
       <!--@Table fxy_financial_account_sets-->
       <id column="id" jdbcType="INTEGER" property="id"/>
+      <result column="tenant_id" jdbcType="INTEGER" property="tenantId"/>
       <result column="company_name" jdbcType="VARCHAR" property="companyName"/>
       <result column="enable_date" jdbcType="DATE" property="enableDate"/>
       <result column="credit_code" jdbcType="VARCHAR" property="creditCode"/>
@@ -22,19 +23,19 @@
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-      id, company_name, enable_date, credit_code, accounting_standards, address, cashier_module,
+      id, tenant_id, company_name, enable_date, credit_code, accounting_standards, address, cashier_module,
       industry, fixed_asset_module, vat_type, voucher_reviewed, create_date, creator_id,
       current_account_date, `encoding`
   </sql>
   <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into fxy_financial_account_sets
-      (company_name, enable_date, credit_code, accounting_standards, address, cashier_module,
+      (tenant_id, company_name, enable_date, credit_code, accounting_standards, address, cashier_module,
       industry, fixed_asset_module, vat_type, voucher_reviewed, create_date, creator_id,
       current_account_date, `encoding`)
     values
     <foreach collection="list" item="item" separator=",">
-        (#{item.companyName,jdbcType=VARCHAR}, #{item.enableDate,jdbcType=DATE}, #{item.creditCode,jdbcType=VARCHAR},
+        (#{item.tenantId,jdbcType=INTEGER}, #{item.companyName,jdbcType=VARCHAR}, #{item.enableDate,jdbcType=DATE}, #{item.creditCode,jdbcType=VARCHAR},
         #{item.accountingStandards,jdbcType=SMALLINT}, #{item.address,jdbcType=VARCHAR},
         #{item.cashierModule,jdbcType=TINYINT}, #{item.industry,jdbcType=SMALLINT}, #{item.fixedAssetModule,jdbcType=TINYINT},
         #{item.vatType,jdbcType=SMALLINT}, #{item.voucherReviewed,jdbcType=TINYINT}, #{item.createDate,jdbcType=TIMESTAMP},

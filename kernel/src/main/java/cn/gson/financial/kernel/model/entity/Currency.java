@@ -43,6 +43,12 @@ public class Currency implements Serializable {
     @TableField(value = "account_sets_id")
     private Integer accountSetsId;
 
+    /**
+     * 租户 ID，用于商业化多租户隔离
+     */
+    @TableField(value = "tenant_id")
+    private Integer tenantId;
+
     private static final long serialVersionUID = 1L;
 
     public static final String COL_CODE = "code";
@@ -54,4 +60,6 @@ public class Currency implements Serializable {
     public static final String COL_LOCAL_CURRENCY = "local_currency";
 
     public static final String COL_ACCOUNT_SETS_ID = "account_sets_id";
+
+    public static final String COL_TENANT_ID = "tenant_id";
 }

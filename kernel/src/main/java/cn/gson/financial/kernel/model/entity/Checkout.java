@@ -26,6 +26,12 @@ public class Checkout implements Serializable {
     @TableField(value = "account_sets_id")
     private Integer accountSetsId;
 
+    /**
+     * 租户 ID，用于商业化多租户隔离
+     */
+    @TableField(value = "tenant_id")
+    private Integer tenantId;
+
     @TableField(value = "check_year")
     private Integer checkYear;
 
@@ -46,6 +52,8 @@ public class Checkout implements Serializable {
     public static final String COL_ID = "id";
 
     public static final String COL_ACCOUNT_SETS_ID = "account_sets_id";
+
+    public static final String COL_TENANT_ID = "tenant_id";
 
     public static final String COL_CHECK_YEAR = "check_year";
 

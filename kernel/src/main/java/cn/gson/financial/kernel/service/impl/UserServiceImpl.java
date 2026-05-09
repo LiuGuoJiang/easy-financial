@@ -83,6 +83,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         if (userAccountSets != null) {
             userVo.setRole(userAccountSets.getRoleType());
+        } else {
+            userVo.setRole(user.getPlatformRole());
         }
 
         QueryWrapper cqw = Wrappers.query();
@@ -98,6 +100,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         userVo.setAvatarUrl(user.getAvatarUrl());
         userVo.setRealName(user.getRealName());
         userVo.setAccountSetsId(user.getAccountSetsId());
+        userVo.setTenantId(user.getTenantId());
+        userVo.setPlatformRole(user.getPlatformRole());
         userVo.setCreateDate(user.getCreateDate());
         return userVo;
     }

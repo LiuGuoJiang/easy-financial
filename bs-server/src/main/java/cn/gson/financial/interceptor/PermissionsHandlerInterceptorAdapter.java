@@ -39,12 +39,13 @@ public class PermissionsHandlerInterceptorAdapter extends HandlerInterceptorAdap
             return true;
         }
 
-        if (userVo.getRole() == null) {
+        String userRole = userVo.getRole() == null ? userVo.getPlatformRole() : userVo.getRole();
+        if (userRole == null) {
             return false;
         }
 
-        Roles role = Roles.valueOf(userVo.getRole());
-        if (role.equals(Roles.Manager)) {
+        Roles role = Roles.valueOf(userRole);
+        if (role.equals(Roles.PlatformAdmin) || role.equals(Roles.MerchantAdmin) || role.equals(Roles.AccountSetAdmin) || role.equals(Roles.Manager)) {
             return true;
         }
 

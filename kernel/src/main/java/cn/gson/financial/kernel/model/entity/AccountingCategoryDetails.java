@@ -15,6 +15,12 @@ public class AccountingCategoryDetails implements Serializable {
     private Integer id;
 
     /**
+     * 租户 ID，用于商业化多租户隔离
+     */
+    @TableField(value = "tenant_id")
+    private Integer tenantId;
+
+    /**
      * 编码
      */
     @TableField(value = "code")
