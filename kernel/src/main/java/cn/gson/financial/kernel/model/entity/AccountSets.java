@@ -27,6 +27,12 @@ public class AccountSets implements Serializable {
     private Integer id;
 
     /**
+     * 租户 ID，用于商业化多租户隔离
+     */
+    @TableField(value = "tenant_id")
+    private Integer tenantId;
+
+    /**
      * 单位名称
      */
     @TableField(value = "company_name")
@@ -111,6 +117,8 @@ public class AccountSets implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public static final String COL_ID = "id";
+
+    public static final String COL_TENANT_ID = "tenant_id";
 
     public static final String COL_COMPANY_NAME = "company_name";
 

@@ -26,6 +26,12 @@ public class ReportTemplateItems implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
+    /**
+     * 租户 ID，用于商业化多租户隔离
+     */
+    @TableField(value = "tenant_id")
+    private Integer tenantId;
+
     @TableField(value = "template_id")
     private Integer templateId;
 
@@ -96,6 +102,8 @@ public class ReportTemplateItems implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public static final String COL_ID = "id";
+
+    public static final String COL_TENANT_ID = "tenant_id";
 
     public static final String COL_TEMPLATE_ID = "template_id";
 

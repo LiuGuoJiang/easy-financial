@@ -137,7 +137,17 @@ public abstract class BaseCrudController<T extends IService, E> extends BaseCont
     protected void setQwAccountSetsId(QueryWrapper qw) {
         try {
             entityClass.getDeclaredField("accountSetsId");
-            qw.eq("account_sets_id", currentUser.getAccountSetsId());
+            if (currentUser != null && currentUser.getAccountSetsId() != null) {
+                qw.eq("account_sets_id", currentUser.getAccountSetsId());
+            }
+        } catch (Exception ex) {
+            // 没有这个字段就不做处理了
+        }
+        try {
+            entityClass.getDeclaredField("tenantId");
+            if (currentUser != null && currentUser.getTenantId() != null) {
+                qw.eq("tenant_id", currentUser.getTenantId());
+            }
         } catch (Exception ex) {
             // 没有这个字段就不做处理了
         }
@@ -152,7 +162,18 @@ public abstract class BaseCrudController<T extends IService, E> extends BaseCont
         try {
             Field field = entityClass.getDeclaredField("accountSetsId");
             field.setAccessible(true);
-            field.set(entity, currentUser.getAccountSetsId());
+            if (currentUser != null && currentUser.getAccountSetsId() != null) {
+                field.set(entity, currentUser.getAccountSetsId());
+            }
+        } catch (Exception ex) {
+            // 没有这个字段就不做处理了
+        }
+        try {
+            Field field = entityClass.getDeclaredField("tenantId");
+            field.setAccessible(true);
+            if (currentUser != null && currentUser.getTenantId() != null) {
+                field.set(entity, currentUser.getTenantId());
+            }
         } catch (Exception ex) {
             // 没有这个字段就不做处理了
         }

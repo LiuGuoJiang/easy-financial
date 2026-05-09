@@ -32,6 +32,12 @@ public class ReportTemplate implements Serializable {
     @TableField(value = "account_sets_id")
     private Integer accountSetsId;
 
+    /**
+     * 租户 ID，用于商业化多租户隔离
+     */
+    @TableField(value = "tenant_id")
+    private Integer tenantId;
+
     @TableField(value = "template_key")
     private String templateKey;
 
@@ -63,6 +69,8 @@ public class ReportTemplate implements Serializable {
     public static final String COL_NAME = "name";
 
     public static final String COL_ACCOUNT_SETS_ID = "account_sets_id";
+
+    public static final String COL_TENANT_ID = "tenant_id";
 
     public static final String COL_TEMPLATE_KEY = "template_key";
 

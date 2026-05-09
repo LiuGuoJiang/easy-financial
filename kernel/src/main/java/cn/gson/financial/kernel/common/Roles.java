@@ -12,11 +12,16 @@ package cn.gson.financial.kernel.common;
  * <p>****************************************************************************</p>
  */
 public enum Roles {
+    PlatformAdmin("平台管理员"),
+    MerchantAdmin("商户管理员"),
+    AccountSetAdmin("账套管理员"),
+    VoucherMaker("制单人"),
+    Viewer("查看人"),
     Manager("账套管理员"),
     Director("主管"),
     Making("制单人"),
     Cashier("出纳"),
-    View("查看");
+    View("查看人");
 
     public String display;
 

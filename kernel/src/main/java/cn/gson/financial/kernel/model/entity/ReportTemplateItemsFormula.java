@@ -38,6 +38,12 @@ public class ReportTemplateItemsFormula implements Serializable {
     private Integer accountSetsId;
 
     /**
+     * 租户 ID，用于商业化多租户隔离
+     */
+    @TableField(value = "tenant_id")
+    private Integer tenantId;
+
+    /**
      * 计算方式
      */
     @TableField(value = "calculation")
@@ -64,6 +70,8 @@ public class ReportTemplateItemsFormula implements Serializable {
     public static final String COL_TEMPLATE_ITEMS_ID = "template_items_id";
 
     public static final String COL_ACCOUNT_SETS_ID = "account_sets_id";
+
+    public static final String COL_TENANT_ID = "tenant_id";
 
     public static final String COL_CALCULATION = "calculation";
 

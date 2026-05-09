@@ -4,16 +4,17 @@
   <resultMap id="BaseResultMap" type="cn.gson.financial.kernel.model.entity.UserAccountSets">
     <!--@mbg.generated-->
     <result column="account_sets_id" jdbcType="INTEGER" property="accountSetsId" />
+    <result column="tenant_id" jdbcType="INTEGER" property="tenantId" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="role_type" jdbcType="VARCHAR" property="roleType" />
   </resultMap>
   <insert id="batchInsert" parameterType="map">
     <!--@mbg.generated-->
     insert into fxy_financial_user_account_sets
-    (account_sets_id, user_id, role_type)
+    (account_sets_id, tenant_id, user_id, role_type)
     values
     <foreach collection="list" item="item" separator=",">
-      (#{item.accountSetsId,jdbcType=INTEGER}, #{item.userId,jdbcType=INTEGER}, #{item.roleType,jdbcType=VARCHAR}
+      (#{item.accountSetsId,jdbcType=INTEGER}, #{item.tenantId,jdbcType=INTEGER}, #{item.userId,jdbcType=INTEGER}, #{item.roleType,jdbcType=VARCHAR}
         )
     </foreach>
   </insert>

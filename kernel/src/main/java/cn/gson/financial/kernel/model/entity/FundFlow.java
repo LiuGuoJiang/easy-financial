@@ -57,6 +57,12 @@ public class FundFlow implements Serializable {
     @TableField(value = "account_sets_id")
     private Integer accountSetsId;
 
+    /**
+     * 租户 ID，用于商业化多租户隔离
+     */
+    @TableField(value = "tenant_id")
+    private Integer tenantId;
+
     @TableField(exist = false)
     private FundAccount account;
 
